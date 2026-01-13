@@ -1,16 +1,18 @@
-## Hi there 👋
+## 👋 Olá, eu sou o Marcos Vinicius
 
-<!--
-**VinnyLast/VinnyLast** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+🎓 Engenheiro de Software recém-formado  
+💻 Desenvolvedor Web | Técnico em Computadores  
+🚀 Buscando oportunidade como Desenvolvedor Júnior  
 
-Here are some ideas to get you started:
+### 🛠 Tecnologias
+- HTML, CSS, JavaScript  
+- Git e GitHub  
+- Firebase  
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+### 📂 Projetos em destaque
+- Sites para eventos corporativos e sociais  
+- Aplicações web com Firebase  
+
+### 📫 Contato
+- LinkedIn: https://linkedin.com/in/marcoosvinny08
+- E-mail: marcoosvinny08@gmail.com
