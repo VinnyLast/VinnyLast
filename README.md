@@ -84,6 +84,7 @@
 ### 📂 Projetos em destaque
 - Sites para eventos corporativos e sociais  
 - Aplicações web
+- Bots Whatsapp
 
 ### 📫 Contato
 <div> 
