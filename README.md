@@ -1,4 +1,4 @@
-## 👋 Olá, eu sou o Marcos Vinicius
+##  Olá, eu sou o Marcos Vinicius
 
 🎓 Engenheiro de Software recém-formado  
 💻 Desenvolvedor Web | Técnico em Computadores  
