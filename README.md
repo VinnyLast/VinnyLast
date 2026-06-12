@@ -1,6 +1,6 @@
 ##  Olá, eu sou o Marcos Vinicius
 
-🎓 Engenheiro de Software recém-formado  
+🎓 Engenheiro de Software   
 💻 Desenvolvedor Web | Técnico em Computadores  
 🚀 Buscando oportunidade como Desenvolvedor Júnior  
 
