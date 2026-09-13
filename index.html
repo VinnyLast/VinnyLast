@@ -67,8 +67,10 @@
     .nav-logo{display:flex;align-items:center;height:100%}
     .nav-logo img{height:88px;width:auto;display:block}
     .nav-links{display:flex;align-items:center;gap:1.8rem}
-    .nav-links a{font-size:13px;font-weight:500;color:var(--muted);transition:color .2s;letter-spacing:.2px}
-    .nav-links a:hover{color:var(--gold)}
+    .nav-links a{position:relative;font-size:13px;font-weight:500;color:var(--muted);transition:color .2s;letter-spacing:.2px}
+    .nav-links a::after{content:'';position:absolute;left:0;right:0;bottom:-10px;height:2px;background:var(--gold-grad);transform:scaleX(0);transition:transform .25s ease}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold)}
+    .nav-links a.active::after{transform:scaleX(1)}
     .nav-controls{display:flex;align-items:center;gap:10px}
     .lang-toggle{display:flex;background:var(--bg3);border:1px solid var(--border);border-radius:20px;overflow:hidden}
     .lang-btn{padding:5px 13px;font-size:12px;font-weight:600;color:var(--muted);border:none;background:transparent;cursor:pointer;transition:all .2s}
@@ -120,7 +122,8 @@
     .about-text{font-size:16px;color:var(--muted);line-height:1.85;max-width:660px}
     .about-text strong{color:var(--text);font-weight:600}
     .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:2.4rem;background:var(--border);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
-    .stat-item{background:var(--bg2);padding:1.4rem 1rem;text-align:center}
+    .stat-item{background:var(--bg2);padding:1.4rem 1rem;text-align:center;transition:background-color .25s}
+    .stat-item:hover{background:var(--gold-dim)}
     .stat-num{font-family:var(--font-head);font-size:clamp(1.5rem,3vw,2rem);font-weight:700;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:4px}
     .stat-label{font-size:11.5px;color:var(--muted);line-height:1.4}
 
@@ -209,10 +212,17 @@
     .contact-link{display:flex;align-items:center;gap:8px;padding:12px 22px;border-radius:10px;border:1px solid var(--border2);font-size:14px;font-weight:600;color:var(--text);transition:all .2s;background:var(--bg2);cursor:pointer;text-decoration:none}
     .contact-link.primary{background:var(--gold-grad);color:#181209;border-color:transparent;box-shadow:0 10px 30px -10px #d4a94a4d}
     .contact-link.primary:hover{filter:brightness(1.08);transform:translateY(-1px)}
-    .contact-link:not(.primary):hover{color:var(--gold);background:var(--gold-dim);border-color:var(--gold)}
+    .contact-link:not(.primary):hover{color:var(--gold);background:var(--gold-dim);border-color:var(--gold);transform:translateY(-2px)}
     .contact-link i{font-size:17px}
 
     footer{text-align:center;padding:2.5rem;font-size:12px;color:var(--hint);border-top:1px solid var(--border)}
+
+    /* SCROLL REVEAL */
+    .reveal{opacity:0;transform:translateY(32px);transition:opacity .8s ease,transform .8s ease}
+    .reveal.visible{opacity:1;transform:none}
+    @media(prefers-reduced-motion:reduce){
+      .reveal{opacity:1!important;transform:none!important;transition:none!important}
+    }
 
     /* LIGHTBOX */
     .showcase-media{cursor:zoom-in}
@@ -285,10 +295,10 @@
 <div class="divider"></div>
 
 <section id="sobre">
-  <div class="section-label" id="label-about">sobre</div>
-  <h2 id="h2-about">Desenvolvedor solo com visão de produto</h2>
-  <p class="about-text" id="about-text">
-    Sou desenvolvedor full-stack baseado em <strong>Feira de Santana, Bahia</strong>, responsável pelo desenvolvimento e manutenção de sistemas para a <strong>AVSEG Proteção Veicular</strong> e clientes externos. Trabalho com o stack completo: desde a infraestrutura VPS até interfaces React em produção, com profundo conhecimento em automação via <strong>WhatsApp Cloud API</strong>, gestão de processos com <strong>PM2</strong> e deploy com <strong>Nginx + Certbot</strong>. Tenho perfil de resolução de problemas reais — prefiro cirurgia precisa a reescritas desnecessárias.
+  <div class="section-label reveal" id="label-about">sobre</div>
+  <h2 class="reveal" id="h2-about">Desenvolvedor solo com visão de produto</h2>
+  <p class="about-text reveal" id="about-text">
+    Sou desenvolvedor full-stack e moro em <strong>Feira de Santana, Bahia</strong>. Cuido do desenvolvimento e da manutenção dos sistemas da <strong>AVSEG Proteção Veicular</strong>, e levo esse mesmo cuidado pros clientes externos que atendo. Gosto de me envolver em todas as camadas de um projeto: da infraestrutura na VPS até as interfaces em React que as pessoas realmente usam, passando por automações no <strong>WhatsApp Cloud API</strong>, gestão de processos com <strong>PM2</strong> e deploy com <strong>Nginx + Certbot</strong>. No fim das contas, prefiro entender a raiz de um problema e resolver com precisão do que sair reescrevendo tudo sem necessidade.
   </p>
   <div class="stats-grid" id="stats-grid"></div>
 </section>
@@ -296,29 +306,29 @@
 <div class="divider"></div>
 
 <section id="stack">
-  <div class="section-label">stack</div>
-  <h2 id="h2-stack">Tecnologias em uso</h2>
+  <div class="section-label reveal">stack</div>
+  <h2 class="reveal" id="h2-stack">Tecnologias em uso</h2>
   <div class="stack-grid">
-    <div class="stack-item"><div class="stack-icon-wrap"><span class="stack-icon">⬡</span></div><div><div class="stack-name">Node.js</div><div class="stack-role">Backend / API</div></div></div>
-    <div class="stack-item"><div class="stack-icon-wrap"><span class="stack-icon">⚛</span></div><div><div class="stack-name">React + Vite</div><div class="stack-role">Frontend</div></div></div>
-    <div class="stack-item"><div class="stack-icon-wrap"><span class="stack-icon">🐘</span></div><div><div class="stack-name">PostgreSQL</div><div class="stack-role">Banco de dados</div></div></div>
-    <div class="stack-item"><div class="stack-icon-wrap"><span class="stack-icon">🟢</span></div><div><div class="stack-name">PM2</div><div class="stack-role">Processos</div></div></div>
-    <div class="stack-item"><div class="stack-icon-wrap"><span class="stack-icon">🌐</span></div><div><div class="stack-name">Nginx</div><div class="stack-role">Proxy / SSL</div></div></div>
-    <div class="stack-item"><div class="stack-icon-wrap"><span class="stack-icon">💬</span></div><div><div class="stack-name">WhatsApp API</div><div class="stack-role">Integração</div></div></div>
-    <div class="stack-item"><div class="stack-icon-wrap"><span class="stack-icon">🔌</span></div><div><div class="stack-name">Socket.io</div><div class="stack-role">Realtime</div></div></div>
-    <div class="stack-item"><div class="stack-icon-wrap"><span class="stack-icon">🐧</span></div><div><div class="stack-name">Ubuntu VPS</div><div class="stack-role">Infra</div></div></div>
-    <div class="stack-item"><div class="stack-icon-wrap"><span class="stack-icon">🐙</span></div><div><div class="stack-name">GitHub</div><div class="stack-role">CI/CD</div></div></div>
+    <div class="stack-item reveal" style="transition-delay:0ms"><div class="stack-icon-wrap"><span class="stack-icon">⬡</span></div><div><div class="stack-name">Node.js</div><div class="stack-role">Backend / API</div></div></div>
+    <div class="stack-item reveal" style="transition-delay:40ms"><div class="stack-icon-wrap"><span class="stack-icon">⚛</span></div><div><div class="stack-name">React + Vite</div><div class="stack-role">Frontend</div></div></div>
+    <div class="stack-item reveal" style="transition-delay:80ms"><div class="stack-icon-wrap"><span class="stack-icon">🐘</span></div><div><div class="stack-name">PostgreSQL</div><div class="stack-role">Banco de dados</div></div></div>
+    <div class="stack-item reveal" style="transition-delay:120ms"><div class="stack-icon-wrap"><span class="stack-icon">🟢</span></div><div><div class="stack-name">PM2</div><div class="stack-role">Processos</div></div></div>
+    <div class="stack-item reveal" style="transition-delay:160ms"><div class="stack-icon-wrap"><span class="stack-icon">🌐</span></div><div><div class="stack-name">Nginx</div><div class="stack-role">Proxy / SSL</div></div></div>
+    <div class="stack-item reveal" style="transition-delay:200ms"><div class="stack-icon-wrap"><span class="stack-icon">💬</span></div><div><div class="stack-name">WhatsApp API</div><div class="stack-role">Integração</div></div></div>
+    <div class="stack-item reveal" style="transition-delay:240ms"><div class="stack-icon-wrap"><span class="stack-icon">🔌</span></div><div><div class="stack-name">Socket.io</div><div class="stack-role">Realtime</div></div></div>
+    <div class="stack-item reveal" style="transition-delay:280ms"><div class="stack-icon-wrap"><span class="stack-icon">🐧</span></div><div><div class="stack-name">Ubuntu VPS</div><div class="stack-role">Infra</div></div></div>
+    <div class="stack-item reveal" style="transition-delay:320ms"><div class="stack-icon-wrap"><span class="stack-icon">🐙</span></div><div><div class="stack-name">GitHub</div><div class="stack-role">CI/CD</div></div></div>
   </div>
 </section>
 
 <div class="divider"></div>
 
 <section id="projetos">
-  <div class="section-label" id="label-projects">projetos</div>
-  <h2 id="h2-projects">O que foi construído</h2>
+  <div class="section-label reveal" id="label-projects">projetos</div>
+  <h2 class="reveal" id="h2-projects">O que foi construído</h2>
   <div class="showcase-grid" id="showcase-grid"></div>
   <div id="projects-grid"></div>
-  <div class="small-projects">
+  <div class="small-projects reveal">
     <div class="small-proj-header">
       <i class="ti ti-package" style="font-size:15px;color:var(--hint)" aria-hidden="true"></i>
       <span id="small-label">Outros projetos entregues</span>
@@ -330,7 +340,7 @@
 <div class="divider"></div>
 
 <section id="contato" class="contact-section">
-  <div class="contact-inner">
+  <div class="contact-inner reveal">
     <div class="section-label" id="label-contact">contato</div>
     <h2 id="contact-h3">Vamos trabalhar juntos?</h2>
     <p id="contact-p">Disponível para projetos, consultorias e automações.</p>
@@ -390,7 +400,7 @@ const T = {
     sub:"Desenvolvo backends robustos, interfaces modernas e integrações completas — do banco de dados ao WhatsApp.",
     ctaProj:"Ver projetos",ctaContact:"Entrar em contato",
     labelAbout:"sobre",h2About:"Desenvolvedor solo com visão de produto",
-    aboutText:`Sou desenvolvedor full-stack baseado em <strong>Feira de Santana, Bahia</strong>, responsável pelo desenvolvimento e manutenção de sistemas para a <strong>AVSEG Proteção Veicular</strong> e clientes externos. Trabalho com o stack completo: desde a infraestrutura VPS até interfaces React em produção, com profundo conhecimento em automação via <strong>WhatsApp Cloud API</strong>, gestão de processos com <strong>PM2</strong> e deploy com <strong>Nginx + Certbot</strong>. Tenho perfil de resolução de problemas reais — prefiro cirurgia precisa a reescritas desnecessárias.`,
+    aboutText:`Sou desenvolvedor full-stack e moro em <strong>Feira de Santana, Bahia</strong>. Cuido do desenvolvimento e da manutenção dos sistemas da <strong>AVSEG Proteção Veicular</strong>, e levo esse mesmo cuidado pros clientes externos que atendo. Gosto de me envolver em todas as camadas de um projeto: da infraestrutura na VPS até as interfaces em React que as pessoas realmente usam, passando por automações no <strong>WhatsApp Cloud API</strong>, gestão de processos com <strong>PM2</strong> e deploy com <strong>Nginx + Certbot</strong>. No fim das contas, prefiro entender a raiz de um problema e resolver com precisão do que sair reescrevendo tudo sem necessidade.`,
     h2Stack:"Tecnologias em uso",
     labelProjects:"projetos",h2Projects:"O que foi construído",
     labelContact:"contato",
@@ -420,7 +430,7 @@ const T = {
     sub:"I build robust backends, modern interfaces and complete integrations — from the database to WhatsApp.",
     ctaProj:"View projects",ctaContact:"Get in touch",
     labelAbout:"about",h2About:"Solo developer with a product mindset",
-    aboutText:`I'm a full-stack developer based in <strong>Feira de Santana, Bahia</strong>, responsible for building and maintaining systems for <strong>AVSEG Proteção Veicular</strong> and external clients. I work across the full stack: from VPS infrastructure to production React interfaces, with deep expertise in automation via <strong>WhatsApp Cloud API</strong>, process management with <strong>PM2</strong> and deployment with <strong>Nginx + Certbot</strong>. I prefer surgical fixes over broad rewrites.`,
+    aboutText:`I'm a full-stack developer living in <strong>Feira de Santana, Bahia</strong>. I take care of building and maintaining the systems behind <strong>AVSEG Proteção Veicular</strong>, and I bring that same care to the external clients I work with. I like being involved in every layer of a project: from the VPS infrastructure to the React interfaces people actually use, along with <strong>WhatsApp Cloud API</strong> automations, process management with <strong>PM2</strong> and deployment with <strong>Nginx + Certbot</strong>. At the end of the day, I'd rather understand the real root of a problem and fix it precisely than rewrite everything without a good reason.`,
     h2Stack:"Technologies in use",
     labelProjects:"projects",h2Projects:"What's been built",
     labelContact:"contact",
@@ -585,9 +595,10 @@ function setLang(l){
 }
 
 function renderStats(){
-  document.getElementById('stats-grid').innerHTML=T[lang].stats.map(s=>
-    `<div class="stat-item"><div class="stat-num">${s.n}</div><div class="stat-label">${s.l}</div></div>`
+  document.getElementById('stats-grid').innerHTML=T[lang].stats.map((s,i)=>
+    `<div class="stat-item reveal" style="transition-delay:${i*60}ms"><div class="stat-num">${s.n}</div><div class="stat-label">${s.l}</div></div>`
   ).join('');
+  observeReveals();
 }
 
 function renderSmall(){
@@ -602,7 +613,8 @@ function renderFeatured(){
   featured[lang].forEach((p,i)=>{
     const fid=`f-${i}`;
     const card=document.createElement('div');
-    card.className='showcase-card';
+    card.className='showcase-card reveal';
+    card.style.transitionDelay=`${i*80}ms`;
     const mediaHtml = p.media==='brand'
       ? `<div class="showcase-media brand"><img src="${p.img}" alt="${p.title}" loading="lazy"><div class="brand-tag">${p.brandTag}</div>${p.live?'<div class="showcase-live"><span class="dot"></span>Live</div>':''}</div>`
       : `<div class="showcase-media" onclick="event.stopPropagation();openLightbox('${p.img}','${p.title.replace(/'/g,"\\'")}')"><img src="${p.img}" alt="${p.title}" loading="lazy"><span class="zoom-hint"><i class="ti ti-zoom-in" aria-hidden="true"></i></span>${p.live?'<div class="showcase-live"><span class="dot"></span>Live</div>':''}</div>`;
@@ -629,6 +641,7 @@ function renderFeatured(){
     }
     grid.appendChild(card);
   });
+  observeReveals();
 }
 
 function renderProjects(){
@@ -641,10 +654,11 @@ function renderProjects(){
     catDiv.innerHTML=`<div class="cat-label">${cat.cat}</div>`;
     const catGrid=document.createElement('div');
     catGrid.className='cat-grid';
-    cat.items.forEach(p=>{
+    cat.items.forEach((p,i)=>{
       const cid=id++;
       const card=document.createElement('div');
-      card.className='proj-card';
+      card.className='proj-card reveal';
+      card.style.transitionDelay=`${i*60}ms`;
       card.innerHTML=`
         <div class="proj-header" onclick="toggleProj(${cid})">
           <div class="proj-header-left">
@@ -663,6 +677,7 @@ function renderProjects(){
     catDiv.appendChild(catGrid);
     grid.appendChild(catDiv);
   });
+  observeReveals();
 }
 
 function toggleProj(i){
@@ -718,10 +733,46 @@ function tick(){
   if(icon)icon.className = cur==='dark' ? 'ti ti-moon' : 'ti ti-sun';
 })();
 
+let revealObserver=null;
+function observeReveals(){
+  if(!revealObserver)return;
+  document.querySelectorAll('.reveal:not(.observado)').forEach(el=>{
+    el.classList.add('observado');
+    revealObserver.observe(el);
+  });
+}
+function initScrollReveal(){
+  revealObserver=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.12});
+  observeReveals();
+}
+
+function initNavScrollSpy(){
+  const links=document.querySelectorAll('.nav-links a');
+  const secoes=[...links].map(link=>document.querySelector(link.getAttribute('href'))).filter(Boolean);
+  const spyObserver=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const id=entry.target.id;
+        links.forEach(link=>link.classList.toggle('active',link.getAttribute('href')===`#${id}`));
+      }
+    });
+  },{rootMargin:'-40% 0px -55% 0px'});
+  secoes.forEach(s=>spyObserver.observe(s));
+}
+
 renderStats();
 renderFeatured();
 renderProjects();
 renderSmall();
+initScrollReveal();
+initNavScrollSpy();
 setTimeout(tick,800);
 </script>
 </body>
