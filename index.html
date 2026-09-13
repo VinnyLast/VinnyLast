@@ -63,9 +63,9 @@
     ::selection{background:var(--gold);color:#161208}
 
     /* NAV */
-    nav{position:sticky;top:0;z-index:100;background:var(--overlay-veil);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:76px}
-    .nav-logo{display:flex;align-items:center}
-    .nav-logo img{height:58px;width:auto;display:block}
+    nav{position:sticky;top:0;z-index:100;background:var(--overlay-veil);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:96px}
+    .nav-logo{display:flex;align-items:center;height:100%}
+    .nav-logo img{height:88px;width:auto;display:block}
     .nav-links{display:flex;align-items:center;gap:1.8rem}
     .nav-links a{font-size:13px;font-weight:500;color:var(--muted);transition:color .2s;letter-spacing:.2px}
     .nav-links a:hover{color:var(--gold)}
@@ -229,8 +229,8 @@
       .stats-grid{grid-template-columns:repeat(2,1fr)}
     }
     @media(max-width:600px){
-      nav{padding:0 1rem;height:66px}
-      .nav-logo img{height:46px}
+      nav{padding:0 1rem;height:76px}
+      .nav-logo img{height:60px}
       .nav-links a{display:none}
       .hero{padding:3.2rem 1.2rem 2.6rem}
       .hero::before{width:280px;height:280px;top:-110px;right:-110px}
