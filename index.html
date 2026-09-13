@@ -63,9 +63,9 @@
     ::selection{background:var(--gold);color:#161208}
 
     /* NAV */
-    nav{position:sticky;top:0;z-index:100;background:var(--overlay-veil);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+    nav{position:sticky;top:0;z-index:100;background:var(--overlay-veil);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:76px}
     .nav-logo{display:flex;align-items:center}
-    .nav-logo img{height:38px;width:auto;display:block}
+    .nav-logo img{height:58px;width:auto;display:block}
     .nav-links{display:flex;align-items:center;gap:1.8rem}
     .nav-links a{font-size:13px;font-weight:500;color:var(--muted);transition:color .2s;letter-spacing:.2px}
     .nav-links a:hover{color:var(--gold)}
@@ -214,12 +214,23 @@
 
     footer{text-align:center;padding:2.5rem;font-size:12px;color:var(--hint);border-top:1px solid var(--border)}
 
+    /* LIGHTBOX */
+    .showcase-media{cursor:zoom-in}
+    .showcase-media .zoom-hint{position:absolute;bottom:12px;right:12px;width:30px;height:30px;border-radius:50%;background:#0009;backdrop-filter:blur(6px);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;opacity:0;transition:opacity .2s}
+    .showcase-media:hover .zoom-hint{opacity:1}
+    .lightbox{position:fixed;inset:0;z-index:1000;background:#000000e6;display:none;align-items:center;justify-content:center;padding:4vh 4vw;cursor:zoom-out}
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:100%;max-height:92vh;border-radius:10px;box-shadow:0 30px 90px -20px #000c;object-fit:contain}
+    .lightbox-close{position:absolute;top:22px;right:28px;width:42px;height:42px;border-radius:50%;border:1px solid #ffffff2e;background:#ffffff14;color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}
+    .lightbox-close:hover{background:#ffffff28}
+
     /* RESPONSIVE */
     @media(max-width:700px){
       .stats-grid{grid-template-columns:repeat(2,1fr)}
     }
     @media(max-width:600px){
-      nav{padding:0 1rem}
+      nav{padding:0 1rem;height:66px}
+      .nav-logo img{height:46px}
       .nav-links a{display:none}
       .hero{padding:3.2rem 1.2rem 2.6rem}
       .hero::before{width:280px;height:280px;top:-110px;right:-110px}
@@ -339,6 +350,11 @@
 
 <footer id="footer-text">Construído por Marcos Vinicius · hvsn.com.br</footer>
 
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox(event)" aria-label="Fechar"><i class="ti ti-x" aria-hidden="true"></i></button>
+  <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()">
+</div>
+
 <script>
 function setTheme(t){
   document.documentElement.setAttribute('data-theme',t);
@@ -350,6 +366,22 @@ function toggleTheme(){
   const cur=document.documentElement.getAttribute('data-theme');
   setTheme(cur==='dark'?'light':'dark');
 }
+
+function openLightbox(src,alt){
+  const lb=document.getElementById('lightbox');
+  document.getElementById('lightbox-img').src=src;
+  document.getElementById('lightbox-img').alt=alt||'';
+  lb.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(e){
+  if(e)e.stopPropagation();
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape')closeLightbox();
+});
 
 const T = {
   pt:{
@@ -573,7 +605,7 @@ function renderFeatured(){
     card.className='showcase-card';
     const mediaHtml = p.media==='brand'
       ? `<div class="showcase-media brand"><img src="${p.img}" alt="${p.title}" loading="lazy"><div class="brand-tag">${p.brandTag}</div>${p.live?'<div class="showcase-live"><span class="dot"></span>Live</div>':''}</div>`
-      : `<div class="showcase-media"><img src="${p.img}" alt="${p.title}" loading="lazy">${p.live?'<div class="showcase-live"><span class="dot"></span>Live</div>':''}</div>`;
+      : `<div class="showcase-media" onclick="event.stopPropagation();openLightbox('${p.img}','${p.title.replace(/'/g,"\\'")}')"><img src="${p.img}" alt="${p.title}" loading="lazy"><span class="zoom-hint"><i class="ti ti-zoom-in" aria-hidden="true"></i></span>${p.live?'<div class="showcase-live"><span class="dot"></span>Live</div>':''}</div>`;
     card.innerHTML=`
       <div class="showcase-frame">
         <div class="showcase-bar">
