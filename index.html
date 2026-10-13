@@ -12,12 +12,12 @@
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Marcos Vinicius — Desenvolvedor Full-Stack. Sistemas robustos, integrações WhatsApp, infraestrutura VPS e apps em produção.">
+  <meta name="description" content="Marcos Vinicius, desenvolvedor full-stack. Sistemas robustos, integrações WhatsApp, infraestrutura VPS e apps em produção.">
   <meta name="author" content="Marcos Vinicius">
-  <meta property="og:title" content="Marcos Vinicius — Full-Stack Developer">
+  <meta property="og:title" content="Marcos Vinicius | Full-Stack Developer">
   <meta property="og:description" content="Sistemas que funcionam de verdade. Node.js, React, PostgreSQL, WhatsApp Cloud API.">
   <meta property="og:url" content="https://hvsn.com.br">
-  <title>Marcos Vinicius — Full-Stack Developer</title>
+  <title>Marcos Vinicius | Full-Stack Developer</title>
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -85,24 +85,14 @@
     .hero::before{width:440px;height:440px;top:-160px;right:-160px;opacity:.10;transform:rotate(45deg)}
     .hero::after{width:220px;height:220px;top:-50px;right:-50px;opacity:.16;transform:rotate(45deg)}
     .hero-top{display:flex;align-items:center;gap:14px;margin-bottom:1.6rem;position:relative}
-    .hero-avatar{width:54px;height:54px;border-radius:50%;object-fit:cover;border:2px solid var(--border2);box-shadow:0 0 0 5px var(--gold-dim)}
     .hero-eyebrow{font-size:12px;font-weight:600;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;margin:0;display:flex;align-items:center;gap:8px}
     .hero-eyebrow::before{content:'';width:6px;height:6px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;box-shadow:0 0 8px var(--gold)}
     .hero h1{position:relative;font-family:var(--font-head);font-size:clamp(2.4rem,5.4vw,4.2rem);font-weight:700;line-height:1.08;letter-spacing:-1.8px;color:var(--text);margin-bottom:1.6rem}
     .hero h1 em{font-style:normal;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
     .hero-sub{position:relative;font-size:17.5px;color:var(--muted);max-width:540px;margin-bottom:2.6rem;line-height:1.75}
 
-    /* TERMINAL */
-    .terminal{position:relative;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:2.6rem;max-width:620px;box-shadow:var(--shadow-gold)}
-    .terminal-bar{background:var(--bg3);padding:11px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border)}
     .t-dot{width:10px;height:10px;border-radius:50%}
     .t-dot.r{background:#ff5f57}.t-dot.y{background:#ffbd2e}.t-dot.g{background:#28c840}
-    .terminal-title{font-size:12px;color:var(--hint);margin-left:8px;font-family:'JetBrains Mono',monospace}
-    .terminal-body{padding:1.3rem 1.5rem;font-family:'JetBrains Mono',monospace;font-size:13px;min-height:80px}
-    .t-line{margin-bottom:4px}
-    .t-prompt{color:var(--gold)}.t-cmd{color:var(--text)}.t-out{color:var(--muted)}
-    .t-cursor{display:inline-block;width:8px;height:14px;background:var(--gold);animation:blink 1s step-end infinite;vertical-align:text-bottom}
-    @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 
     .hero-cta{display:flex;gap:12px;flex-wrap:wrap;position:relative}
     .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:9px;font-size:14px;font-weight:600;cursor:pointer;border:none;transition:all .2s;font-family:'Inter',sans-serif}
@@ -120,13 +110,16 @@
     .divider::after{content:'';position:absolute;left:50%;top:50%;width:7px;height:7px;background:var(--gold);transform:translate(-50%,-50%) rotate(45deg);box-shadow:0 0 14px var(--gold)}
 
     /* ABOUT */
-    .about-text{font-size:16px;color:var(--muted);line-height:1.85;max-width:660px}
+    .about-grid{display:grid;grid-template-columns:minmax(0,380px) 1fr;gap:3.2rem;align-items:center}
+    .about-photo{aspect-ratio:1/1;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border2);box-shadow:var(--shadow-gold);background:var(--bg3)}
+    .about-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .about-body h2{font-size:clamp(2rem,4vw,2.8rem);letter-spacing:-1px;margin-bottom:1.1rem}
+    .grad{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .about-text{font-size:17px;color:var(--muted);line-height:1.75;max-width:560px}
     .about-text strong{color:var(--text);font-weight:600}
-    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:2.4rem;background:var(--border);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
-    .stat-item{background:var(--bg2);padding:1.4rem 1rem;text-align:center;transition:background-color .25s}
-    .stat-item:hover{background:var(--gold-dim)}
-    .stat-num{font-family:var(--font-head);font-size:clamp(1.5rem,3vw,2rem);font-weight:700;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:4px}
-    .stat-label{font-size:11.5px;color:var(--muted);line-height:1.4}
+    .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem 2rem;margin-top:2.2rem;max-width:520px}
+    .stat-num{font-family:var(--font-head);font-size:clamp(1.9rem,3.4vw,2.6rem);font-weight:700;line-height:1.1;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:4px}
+    .stat-label{font-size:13.5px;color:var(--muted);line-height:1.4}
 
     /* STACK */
     .stack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:1.5rem}
@@ -430,7 +423,8 @@
 
     /* RESPONSIVE */
     @media(max-width:700px){
-      .stats-grid{grid-template-columns:repeat(2,1fr)}
+      .about-grid{grid-template-columns:1fr;gap:2rem}
+      .about-photo{max-width:300px}
     }
     @media(max-width:600px){
       nav{padding:0 1rem;height:64px}
@@ -467,19 +461,9 @@
 </nav>
 
 <div class="hero">
-  <div class="hero-top">
-    <img class="hero-avatar" src="assets/img/profile.png" alt="Marcos Vinicius" loading="lazy">
-    <div class="hero-eyebrow" id="hero-eyebrow">Desenvolvedor Full-Stack · Bahia, Brasil</div>
-  </div>
+    <div class="hero-top"><div class="hero-eyebrow" id="hero-eyebrow">Desenvolvedor Full-Stack</div></div>
   <h1 id="hero-h1">Sistemas que <em>funcionam</em> de verdade</h1>
-  <p class="hero-sub" id="hero-sub">Desenvolvo backends robustos, interfaces modernas e integrações completas — do banco de dados ao WhatsApp.</p>
-  <div class="terminal">
-    <div class="terminal-bar">
-      <div class="t-dot r"></div><div class="t-dot y"></div><div class="t-dot g"></div>
-      <span class="terminal-title">marcos@hvsn ~ %</span>
-    </div>
-    <div class="terminal-body" id="terminal-body"></div>
-  </div>
+  <p class="hero-sub" id="hero-sub">Desenvolvo backends robustos, interfaces modernas e integrações completas, do banco de dados ao WhatsApp.</p>
   <div class="hero-cta">
     <button class="btn btn-primary" id="cta-proj" onclick="document.getElementById('projetos').scrollIntoView({behavior:'smooth'})">Ver projetos</button>
     <button class="btn btn-ghost" id="cta-contact" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Entrar em contato</button>
@@ -489,12 +473,15 @@
 <div class="divider"></div>
 
 <section id="sobre">
-  <div class="section-label reveal" id="label-about">sobre</div>
-  <h2 class="reveal" id="h2-about">Desenvolvedor solo com visão de produto</h2>
-  <p class="about-text reveal" id="about-text">
-    Sou desenvolvedor full-stack e moro em <strong>Feira de Santana, Bahia</strong>. Cuido do desenvolvimento e da manutenção dos sistemas da <strong>AVSEG Proteção Veicular</strong>, e levo esse mesmo cuidado pros clientes externos que atendo. Gosto de me envolver em todas as camadas de um projeto: da infraestrutura na VPS até as interfaces em React que as pessoas realmente usam, passando por automações no <strong>WhatsApp Cloud API</strong>, gestão de processos com <strong>PM2</strong> e deploy com <strong>Nginx + Certbot</strong>. No fim das contas, prefiro entender a raiz de um problema e resolver com precisão do que sair reescrevendo tudo sem necessidade.
-  </p>
-  <div class="stats-grid" id="stats-grid"></div>
+  <div class="about-grid">
+    <div class="about-photo reveal"><img src="assets/img/profile.png" alt="Marcos Vinicius" loading="lazy"></div>
+    <div class="about-body">
+      <div class="section-label reveal" id="label-about">sobre</div>
+      <h2 class="reveal" id="h2-about">Marcos <span class="grad">Vinicius</span></h2>
+      <p class="about-text reveal" id="about-text">Desenvolvedor full-stack. Crio <strong>sites, sistemas e automações de WhatsApp</strong> que rodam em produção, da infraestrutura ao que o usuário vê na tela. Prefiro entender a raiz de um problema e resolver com precisão a reescrever tudo sem necessidade.</p>
+      <div class="stats-grid" id="stats-grid"></div>
+    </div>
+  </div>
 </section>
 
 <div class="divider"></div>
@@ -610,12 +597,12 @@ function toggleTheme(){
 
 const T = {
   pt:{
-    eyebrow:"Desenvolvedor Full-Stack · Bahia, Brasil",
+    eyebrow:"Desenvolvedor Full-Stack",
     h1:'Sistemas que <em>funcionam</em> de verdade',
-    sub:"Desenvolvo backends robustos, interfaces modernas e integrações completas — do banco de dados ao WhatsApp.",
+    sub:"Desenvolvo backends robustos, interfaces modernas e integrações completas, do banco de dados ao WhatsApp.",
     ctaProj:"Ver projetos",ctaContact:"Entrar em contato",
-    labelAbout:"sobre",h2About:"Desenvolvedor solo com visão de produto",
-    aboutText:`Sou desenvolvedor full-stack e moro em <strong>Feira de Santana, Bahia</strong>. Cuido do desenvolvimento e da manutenção dos sistemas da <strong>AVSEG Proteção Veicular</strong>, e levo esse mesmo cuidado pros clientes externos que atendo. Gosto de me envolver em todas as camadas de um projeto: da infraestrutura na VPS até as interfaces em React que as pessoas realmente usam, passando por automações no <strong>WhatsApp Cloud API</strong>, gestão de processos com <strong>PM2</strong> e deploy com <strong>Nginx + Certbot</strong>. No fim das contas, prefiro entender a raiz de um problema e resolver com precisão do que sair reescrevendo tudo sem necessidade.`,
+    labelAbout:"sobre",h2About:'Marcos <span class="grad">Vinicius</span>',
+    aboutText:`Desenvolvedor full-stack. Crio <strong>sites, sistemas e automações de WhatsApp</strong> que rodam em produção, da infraestrutura ao que o usuário vê na tela. Prefiro entender a raiz de um problema e resolver com precisão a reescrever tudo sem necessidade.`,
     h2Stack:"Tecnologias em uso",
     labelProjects:"projetos",h2Projects:"O que foi construído",
     labelContact:"contato",
@@ -649,20 +636,15 @@ const T = {
     smallItems:[
       {icon:"ti-photo",name:"AVSEG Festa 2025",desc:"Álbum compartilhável com lista de presença para evento de fim de ano da AVSEG"},
       {icon:"ti-heart",name:"Casamento Site",desc:"Álbum digital compartilhável para casamento com galeria de fotos"}
-    ],
-    terminalLines:[
-      {cmd:"ls projetos/",out:"bot-avseg/&nbsp;&nbsp;chat-avseg/&nbsp;&nbsp;hvsn-agenda/&nbsp;&nbsp;edu-barbearia/&nbsp;&nbsp;barbearia-api/"},
-      {cmd:"cat stack.txt",out:"Node.js · React · PostgreSQL · Socket.io · WhatsApp Cloud API"},
-      {cmd:"uptime infra",out:"VPS online · 3 domínios ativos · 6 apps em produção via PM2"}
     ]
   },
   en:{
-    eyebrow:"Full-Stack Developer · Bahia, Brazil",
+    eyebrow:"Full-Stack Developer",
     h1:'Systems that <em>actually work</em>',
-    sub:"I build robust backends, modern interfaces and complete integrations — from the database to WhatsApp.",
+    sub:"I build robust backends, modern interfaces and complete integrations, from the database to WhatsApp.",
     ctaProj:"View projects",ctaContact:"Get in touch",
-    labelAbout:"about",h2About:"Solo developer with a product mindset",
-    aboutText:`I'm a full-stack developer living in <strong>Feira de Santana, Bahia</strong>. I take care of building and maintaining the systems behind <strong>AVSEG Proteção Veicular</strong>, and I bring that same care to the external clients I work with. I like being involved in every layer of a project: from the VPS infrastructure to the React interfaces people actually use, along with <strong>WhatsApp Cloud API</strong> automations, process management with <strong>PM2</strong> and deployment with <strong>Nginx + Certbot</strong>. At the end of the day, I'd rather understand the real root of a problem and fix it precisely than rewrite everything without a good reason.`,
+    labelAbout:"about",h2About:'Marcos <span class="grad">Vinicius</span>',
+    aboutText:`Full-stack developer. I build <strong>websites, systems and WhatsApp automations</strong> that run in production, from infrastructure to what the user sees on screen. I would rather understand the root of a problem and fix it precisely than rewrite everything for no reason.`,
     h2Stack:"Technologies in use",
     labelProjects:"projects",h2Projects:"What's been built",
     labelContact:"contact",
@@ -696,18 +678,13 @@ const T = {
     smallItems:[
       {icon:"ti-photo",name:"AVSEG Party 2025",desc:"Shareable album with attendance list for AVSEG year-end event"},
       {icon:"ti-heart",name:"Wedding Site",desc:"Shareable digital wedding album with photo gallery"}
-    ],
-    terminalLines:[
-      {cmd:"ls projects/",out:"bot-avseg/&nbsp;&nbsp;chat-avseg/&nbsp;&nbsp;hvsn-agenda/&nbsp;&nbsp;edu-barbearia/&nbsp;&nbsp;barbearia-api/"},
-      {cmd:"cat stack.txt",out:"Node.js · React · PostgreSQL · Socket.io · WhatsApp Cloud API"},
-      {cmd:"uptime infra",out:"VPS online · 3 active domains · 6 apps running via PM2"}
     ]
   }
 };
 
 const projects = {
   pt:[
-    {cat:"Sistemas internos — AVSEG",items:[
+    {cat:"Sistemas para a AVSEG",items:[
       {title:"AVSEG Bot",tags:[{t:"WhatsApp",c:"teal"},{t:"Automação",c:"blue"},{t:"Node.js",c:"gray"}],
        desc:"Bot completo para gestão de ~9.000 associados via WhatsApp Cloud API. Notificações, boletos, menus interativos e handoff para atendente.",
        features:["Notificações automáticas de vencimento (I9 e South)","Consulta de boleto com URL encurtada personalizada","Menus de lista interativos e botões de template dinâmicos","Fluxo de avaliação de atendimento 1–5 estrelas","Transferência para atendente humano com handoff automático","Cron jobs diários com controle de timezone UTC-3"],
@@ -737,9 +714,9 @@ const projects = {
     ]}
   ],
   en:[
-    {cat:"Internal systems — AVSEG",items:[
+    {cat:"Systems for AVSEG",items:[
       {title:"AVSEG Bot",tags:[{t:"WhatsApp",c:"teal"},{t:"Automation",c:"blue"},{t:"Node.js",c:"gray"}],
-       desc:"Full-featured WhatsApp Cloud API bot managing ~9,000 members — notifications, invoices, interactive menus and agent handoff.",
+       desc:"Full-featured WhatsApp Cloud API bot managing ~9,000 members: notifications, invoices, interactive menus and agent handoff.",
        features:["Automatic due date notifications (I9 and South billing)","Invoice lookup with custom shortened URLs","Interactive list menus and dynamic template buttons","1–5 star service rating flow","Human agent handoff with automatic transfer","Daily cron jobs with UTC-3 timezone control"],
        stack:["Node.js","Express","Meta Cloud API","PostgreSQL","PM2","Cron"]}
     ]},
@@ -818,7 +795,7 @@ const systems = {
   ]
 };
 
-let lang='pt', termTO=null, termCmdIdx=0, termCharIdx=0, termPhase=0;
+let lang='pt';
 
 function setLang(l){
   lang=l;
@@ -831,7 +808,7 @@ function setLang(l){
   document.getElementById('cta-proj').textContent=t.ctaProj;
   document.getElementById('cta-contact').textContent=t.ctaContact;
   document.getElementById('label-about').textContent=t.labelAbout;
-  document.getElementById('h2-about').textContent=t.h2About;
+  document.getElementById('h2-about').innerHTML=t.h2About;
   document.getElementById('about-text').innerHTML=t.aboutText;
   document.getElementById('h2-stack').textContent=t.h2Stack;
   document.getElementById('label-projects').textContent=t.labelProjects;
@@ -852,7 +829,6 @@ function setLang(l){
   renderBot();
   renderMoreLabel();
   renderProjects();
-  resetTerminal();
 }
 
 function renderStats(){
@@ -864,7 +840,7 @@ function renderStats(){
 
 function renderSmall(){
   document.getElementById('small-items').innerHTML=T[lang].smallItems.map(i=>
-    `<div class="small-item"><i class="ti ${i.icon}" aria-hidden="true"></i><div><strong>${i.name}</strong> — ${i.desc}</div></div>`
+    `<div class="small-item"><i class="ti ${i.icon}" aria-hidden="true"></i><div><strong>${i.name}</strong>: ${i.desc}</div></div>`
   ).join('');
 }
 
@@ -1287,48 +1263,6 @@ function toggleProj(i){
   document.getElementById('chev-'+i).classList.toggle('open');
 }
 
-function renderTerminal(){
-  const lines=T[lang].terminalLines;
-  let html='';
-  for(let i=0;i<termCmdIdx;i++){
-    html+=`<div class="t-line"><span class="t-prompt">❯ </span><span class="t-cmd">${lines[i].cmd}</span></div><div class="t-line" style="margin-bottom:10px"><span class="t-out">${lines[i].out}</span></div>`;
-  }
-  if(termCmdIdx<lines.length){
-    const cur=lines[termCmdIdx].cmd.slice(0,termCharIdx);
-    html+=`<div class="t-line"><span class="t-prompt">❯ </span><span class="t-cmd">${cur}</span><span class="t-cursor"></span></div>`;
-    if(termPhase===1){
-      html+=`<div class="t-line" style="margin-bottom:10px"><span class="t-out">${lines[termCmdIdx].out}</span></div>`;
-    }
-  }
-  document.getElementById('terminal-body').innerHTML=html;
-}
-
-function resetTerminal(){
-  if(termTO)clearTimeout(termTO);
-  termCmdIdx=0;termCharIdx=0;termPhase=0;
-  renderTerminal();
-  termTO=setTimeout(tick,800);
-}
-
-function tick(){
-  const lines=T[lang].terminalLines;
-  if(termCmdIdx>=lines.length){termTO=setTimeout(resetTerminal,3500);return;}
-  const line=lines[termCmdIdx];
-  if(termPhase===0){
-    if(termCharIdx<line.cmd.length){
-      termCharIdx++;
-      renderTerminal();
-      termTO=setTimeout(tick,52);
-    } else {
-      termPhase=1;renderTerminal();termTO=setTimeout(tick,380);
-    }
-  } else {
-    termPhase=0;termCmdIdx++;termCharIdx=0;
-    renderTerminal();
-    termTO=setTimeout(tick,550);
-  }
-}
-
 (function(){
   const icon=document.getElementById('theme-icon');
   const cur=document.documentElement.getAttribute('data-theme')||'dark';
@@ -1379,7 +1313,6 @@ renderSmall();
 initScrollReveal();
 initBotAutoplay();
 initNavScrollSpy();
-setTimeout(tick,800);
 </script>
 </body>
 </html>
