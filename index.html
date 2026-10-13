@@ -165,18 +165,12 @@
     .swap{animation:swapIn .5s ease both}
     .laptop{position:relative;width:80%;margin-top:-2%}
     .laptop-screen{position:relative;aspect-ratio:16/10;border:6px solid #1c1a17;border-radius:10px 10px 0 0;background:#0c0c0c;overflow:hidden;box-shadow:0 20px 50px -18px #000c}
-    .laptop-screen iframe,.phone-screen iframe{position:absolute;top:0;left:0;border:0;transform-origin:0 0;pointer-events:none;background:#fff}
-    .laptop-screen iframe{width:1280px;height:800px}
-    .phone-screen iframe{width:390px;height:820px}
+    img.tour{display:block;width:100%;height:auto;will-change:transform}
     .laptop-screen .hit{position:absolute;inset:0;z-index:2}
-    .laptop-screen.shot{cursor:zoom-in;aspect-ratio:2/1}
-    .laptop-screen.shot img{width:100%;height:100%;object-fit:contain;display:block}
     .laptop-base{height:11px;width:112%;margin-left:-6%;background:linear-gradient(#34312c,#14120f);border-radius:0 0 14px 14px;position:relative}
     .laptop-base::after{content:'';position:absolute;left:50%;top:0;width:16%;height:4px;transform:translateX(-50%);background:#0c0b09;border-radius:0 0 6px 6px}
     .phone{position:absolute;right:4%;bottom:7%;width:20%;z-index:3;filter:drop-shadow(0 18px 24px #000a)}
     .phone-screen{position:relative;aspect-ratio:390/820;border:5px solid #1c1a17;border-radius:18px;background:#fff;overflow:hidden}
-    .zoom-hint{position:absolute;bottom:10px;right:10px;width:30px;height:30px;border-radius:50%;background:#000a;backdrop-filter:blur(6px);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;opacity:0;transition:opacity .2s}
-    .laptop-screen.shot:hover .zoom-hint{opacity:1}
     .live-badge{position:absolute;top:12px;left:12px;z-index:4;background:#000a;backdrop-filter:blur(6px);color:#fff;font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px;display:flex;align-items:center;gap:5px;letter-spacing:.5px;text-transform:uppercase}
     .live-badge .dot{width:6px;height:6px;border-radius:50%;background:#28c840;box-shadow:0 0 6px #28c840}
     .stage-caption{display:flex;flex-direction:column;gap:6px}
@@ -218,6 +212,146 @@
     .chat-input input:focus{border-color:var(--gold)}
     .send-btn{width:40px;height:40px;flex-shrink:0;border-radius:50%;border:none;background:var(--gold-grad);color:#181209;font-size:17px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:filter .2s}
     .send-btn:hover{filter:brightness(1.1)}
+
+    /* SISTEMAS (demos clicáveis) */
+    .sys-panel{margin-bottom:1.6rem}
+    .sys-panel .panel-head{flex-wrap:wrap}
+    .app-window{border:1px solid var(--border2);border-radius:14px;overflow:hidden;background:#0b0f1a;box-shadow:var(--shadow-gold)}
+    .app-chrome{display:flex;align-items:center;gap:8px;padding:9px 12px;background:#111522;border-bottom:1px solid #ffffff12}
+    .app-chrome .t-dot{width:9px;height:9px;flex-shrink:0}
+    .app-chrome .url-pill{flex:0 1 260px;margin:0 auto;font-size:11px;padding:4px 12px;background:#0000004d;border-color:#ffffff14;color:#9aa3b8;justify-content:center}
+    .demo-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:20px;background:var(--gold-grad);color:#181209;font-size:11px;font-weight:700;white-space:nowrap;flex-shrink:0;animation:badgePulse 2.4s ease-in-out infinite}
+    .demo-badge .short{display:none}
+    .app-window.touched .demo-badge{animation:none;box-shadow:none}
+    @keyframes badgePulse{0%,100%{box-shadow:0 0 0 0 #d4a94a66}50%{box-shadow:0 0 0 7px #d4a94a00}}
+    .cap-note{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--hint);margin-top:2px}
+    .app{display:grid;height:450px;font-size:12.5px;line-height:1.45;color:#e6e9f2;text-align:left}
+    .app{color-scheme:dark}
+    .app *{scrollbar-width:thin;scrollbar-color:#3a4260 transparent}
+    .app button{font-family:inherit;font-size:inherit;color:inherit}
+    .app h3{font-family:var(--font-head);font-size:18px;margin:0 0 12px}
+    .app h4{font-size:12.5px;margin:0 0 8px;color:#eef1f8}
+    .app.rotas{grid-template-columns:196px 1fr;background:#0e1322}
+    .rt-side{background:linear-gradient(180deg,#0b3d91,#051c47);padding:14px 10px;display:flex;flex-direction:column;gap:4px;overflow:auto}
+    .rt-brand{background:#fff;color:#0b3d91;border-radius:8px;padding:9px 6px;font-weight:800;font-style:italic;font-size:10.5px;text-align:center;margin-bottom:10px}
+    .rt-nav{display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:9px;color:#cfd9f1;cursor:pointer;font-weight:600;border:0;background:transparent;text-align:left;white-space:nowrap;transition:background .2s}
+    .rt-nav i{font-size:16px}
+    .rt-nav:hover{background:#ffffff14}
+    .rt-nav.active{background:#ffffff22;color:#fff}
+    .rt-main{padding:16px 18px;overflow:auto;min-width:0}
+    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:10px}
+    .kpi{background:#171e30;border:1px solid #2a3350;border-top:3px solid #3b6fc9;border-radius:10px;padding:10px 12px;min-width:0}
+    .kpi small{display:flex;gap:6px;align-items:center;color:#a7b0c4;font-weight:700;letter-spacing:.5px;font-size:9.5px;text-transform:uppercase}
+    .kpi b{display:block;font-size:19px;margin-top:4px;white-space:nowrap}
+    .cards2{display:grid;grid-template-columns:1.4fr 1fr;gap:10px}
+    .card{background:#171e30;border:1px solid #2a3350;border-radius:10px;padding:12px;min-width:0}
+    .donut{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .legend{display:flex;flex-direction:column;gap:5px;color:#a7b0c4;font-size:12px}
+    .legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+    .legend b{color:#eef1f8;margin-left:2px}
+    .hbar{display:grid;grid-template-columns:120px 1fr 86px;align-items:center;gap:10px;margin:6px 0;color:#a7b0c4}
+    .hbar div{height:8px;background:#0e1322;border-radius:8px;overflow:hidden}
+    .hbar i{display:block;height:100%;background:#3b6fc9;border-radius:8px;transition:width .5s}
+    .hbar b{color:#eef1f8;text-align:right;font-weight:600}
+    .rchips{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px}
+    .rchip{padding:5px 12px;border-radius:20px;border:1px solid #2a3350;background:transparent;color:#a7b0c4;cursor:pointer;font-weight:600}
+    .rchip.on{background:#3b6fc9;border-color:#3b6fc9;color:#fff}
+    .tbl{overflow:auto;border:1px solid #2a3350;border-radius:10px;background:#171e30}
+    .tbl table{width:100%;border-collapse:collapse;min-width:560px}
+    .tbl th{padding:9px 12px;text-align:left;font-size:10px;letter-spacing:.5px;text-transform:uppercase;color:#7883a0;border-bottom:1px solid #2a3350;white-space:nowrap}
+    .tbl td{padding:9px 12px;border-bottom:1px solid #1f2740;color:#d7dcea;white-space:nowrap}
+    .tbl tr:last-child td{border-bottom:0}
+    .st{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:700}
+    .st.and{background:#16274a;color:#7fa7ff}.st.ok{background:#103426;color:#4fd1a0}.st.ag{background:#3b2f12;color:#e6b84d}
+    .rbtn{padding:5px 12px;border-radius:7px;border:0;background:#3b6fc9;color:#fff!important;font-weight:700;cursor:pointer;transition:filter .2s}
+    .rbtn:hover{filter:brightness(1.15)}
+    .rbtn.alt{background:#1f2a4a;border:1px solid #3b6fc9;color:#9db9f5!important}
+    .dim{color:#7883a0}
+    .hint{margin-top:10px;color:#7883a0;font-size:11.5px;display:flex;gap:6px;align-items:center}
+
+    .app.chat{grid-template-columns:196px 250px 1fr;background:#0b0b0b;--y:#f5c400}
+    .ch-side{border-right:1px solid #2a2a2a;padding:14px 12px;display:flex;flex-direction:column;gap:8px;overflow:auto;background:#080808}
+    .ch-brand{display:flex;align-items:center;gap:8px;font-family:var(--font-head);font-weight:700;color:var(--y);font-size:15px}
+    .ch-user{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border:1px solid #2a2a2a;border-radius:9px;background:#141414;font-weight:600}
+    .ch-user span{font-size:10px;color:#8a8f98;text-transform:uppercase}
+    .ch-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .ch-stats div{border:1px solid #f5c40033;background:#f5c4000d;border-radius:9px;padding:8px}
+    .ch-stats b{display:block;font-size:20px;color:var(--y)}
+    .ch-stats small{font-size:9.5px;letter-spacing:.4px;text-transform:uppercase;color:#a7a7a7}
+    .ch-f{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:9px;border:0;background:transparent;cursor:pointer;color:#d7d7d7;font-weight:600;text-align:left;transition:background .2s}
+    .ch-f i{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+    .ch-f em{margin-left:auto;font-style:normal;color:#8a8f98;font-size:11px}
+    .ch-f:hover{background:#ffffff0a}
+    .ch-f.on{background:#f5c40018;color:var(--y)}
+    .ch-list{max-width:none;margin:0;padding:0;border-right:1px solid #2a2a2a;display:flex;flex-direction:column;min-height:0;min-width:0}
+    .ch-list h3{padding:14px 14px 8px;margin:0}
+    .ch-list>input{margin:0 12px 10px;padding:9px 12px;border-radius:9px;border:1px solid #2a2a2a;background:#141414;color:#f5f5f5;font:inherit;outline:none}
+    .ch-list>input:focus{border-color:var(--y)}
+    #ch-items{overflow:auto;flex:1;border-top:1px solid #2a2a2a}
+    .ch-item{display:flex;align-items:center;gap:10px;width:100%;padding:10px 12px;border:0;border-bottom:1px solid #1a1a1a;background:transparent;cursor:pointer;text-align:left;transition:background .2s}
+    .ch-item:hover{background:#141414}
+    .ch-item.on{background:#f5c4001a}
+    .av{width:34px;height:34px;border-radius:50%;background:#f5c40022;color:var(--y);display:inline-flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0}
+    .ch-item .tx{flex:1;min-width:0;display:flex;flex-direction:column}
+    .ch-item .tx b{font-weight:600;color:#f5f5f5}
+    .ch-item .tx small{color:#8a8f98;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .ch-item .mt{display:flex;flex-direction:column;align-items:flex-end;gap:3px;font-size:10.5px;color:#8a8f98}
+    .ch-item .mt em{font-style:normal;background:var(--y);color:#111;border-radius:20px;min-width:18px;text-align:center;padding:0 5px;font-weight:700}
+    .empty{padding:20px;text-align:center;color:#8a8f98}
+    .ch-pane{max-width:none;margin:0;padding:0;display:flex;flex-direction:column;min-height:0;min-width:0}
+    .ch-empty{margin:auto;text-align:center;color:#a7a7a7;display:flex;flex-direction:column;gap:6px;align-items:center;padding:20px}
+    .ch-empty i{font-size:44px;color:#f5c40066}
+    .ch-empty b{color:#f5f5f5;font-size:15px}
+    .ch-head{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid #2a2a2a;flex-wrap:wrap}
+    .ch-head>div{display:flex;flex-direction:column;margin-right:auto;min-width:0}
+    .ch-head small{color:#8a8f98}
+    .ch-head .back{display:none;border:0;background:transparent;font-size:18px;cursor:pointer}
+    .lab{padding:2px 9px;border-radius:20px;font-size:10.5px;font-weight:700;color:var(--c);background:color-mix(in srgb,var(--c) 16%,transparent);white-space:nowrap}
+    .stp{padding:2px 9px;border-radius:20px;font-size:10.5px;font-weight:700;white-space:nowrap}
+    .stp.wait{background:#f5c40022;color:#f5c400}.stp.att{background:#22c55e22;color:#22c55e}.stp.done{background:#ffffff14;color:#a7a7a7}
+    .ch-head .rbtn{background:var(--y);color:#111!important}
+    .ch-head .rbtn.alt{background:transparent;border:1px solid #ef4444;color:#ef4444!important}
+    .ch-msgs{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:8px;background:radial-gradient(circle at 50% 0,#f5c40008,transparent 60%)}
+    .mb{max-width:78%;padding:8px 12px 6px;border-radius:12px;position:relative;animation:swapIn .3s ease both}
+    .mb small{display:block;text-align:right;font-size:10px;color:#8a8f98;margin-top:2px}
+    .mb.in{align-self:flex-start;background:#1c1c1c;border:1px solid #2a2a2a}
+    .mb.out{align-self:flex-end;background:#f5c40022;border:1px solid #f5c40044}
+    .mb.bot{background:#22c55e18;border-color:#22c55e44}
+    .ch-tpl{display:flex;gap:6px;padding:6px 14px;overflow-x:auto;scrollbar-width:none}
+    .ch-tpl button{flex-shrink:0;padding:4px 11px;border-radius:20px;border:1px solid #2a2a2a;background:#141414;cursor:pointer;color:#c9c9c9;transition:all .2s}
+    .ch-tpl button:hover{border-color:var(--y);color:var(--y)}
+    .ch-form{display:flex;gap:8px;padding:8px 14px 12px}
+    .ch-form input{flex:1;min-width:0;padding:10px 14px;border-radius:22px;border:1px solid #2a2a2a;background:#141414;color:#f5f5f5;font:inherit;outline:none}
+    .ch-form input:focus{border-color:var(--y)}
+    .ch-form input:disabled{opacity:.5}
+    .ch-form .send{width:38px;height:38px;border-radius:50%;border:0;background:var(--y);color:#111;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px}
+    .ch-form .send:disabled{opacity:.4;cursor:default}
+    @media(max-width:760px){
+      .app{height:500px}
+      .app.rotas{grid-template-columns:1fr;grid-template-rows:auto 1fr}
+      .rt-side{flex-direction:row;overflow-x:auto;padding:8px;gap:4px}
+      .rt-brand{display:none}
+      .rt-nav{padding:8px 11px}
+      .kpis{grid-template-columns:repeat(2,1fr)}
+      .cards2{grid-template-columns:1fr}
+      .hbar{grid-template-columns:96px 1fr 76px}
+      .app.chat{grid-template-columns:1fr;grid-template-rows:auto 1fr}
+      .ch-side{border-right:0;border-bottom:1px solid #2a2a2a;flex-direction:row;overflow-x:auto;padding:8px;gap:6px;align-items:center}
+      .ch-brand,.ch-user,.ch-stats{display:none}
+      .ch-f{flex-shrink:0;white-space:nowrap;border:1px solid #2a2a2a}
+      .ch-list,.ch-pane{grid-column:1;grid-row:2;border-right:0}
+      .app.chat .ch-pane{display:none}
+      .app.chat.has-sel .ch-pane{display:flex}
+      .app.chat.has-sel .ch-list,.app.chat.has-sel .ch-side{display:none}
+      .app.chat.has-sel{grid-template-rows:1fr}
+      .app.chat.has-sel .ch-pane{grid-row:1}
+      .ch-head .back{display:block}
+      .demo-badge .long{display:none}
+      .demo-badge .short{display:inline}
+      .app-chrome .url-pill{display:none}
+      .app-chrome{justify-content:flex-start}
+      .demo-badge{margin-left:auto}
+    }
 
     /* MORE */
     .more-toggle{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;border-radius:var(--radius);border:1px solid var(--border2);background:transparent;color:var(--text);font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s}
@@ -293,12 +427,6 @@
       .reveal{opacity:1!important;transform:none!important;transition:none!important}
     }
 
-    /* LIGHTBOX */
-    .lightbox{position:fixed;inset:0;z-index:1000;background:#000000e6;display:none;align-items:center;justify-content:center;padding:4vh 4vw;cursor:zoom-out}
-    .lightbox.open{display:flex}
-    .lightbox img{max-width:100%;max-height:92vh;border-radius:10px;box-shadow:0 30px 90px -20px #000c;object-fit:contain}
-    .lightbox-close{position:absolute;top:22px;right:28px;width:42px;height:42px;border-radius:50%;border:1px solid #ffffff2e;background:#ffffff14;color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}
-    .lightbox-close:hover{background:#ffffff28}
 
     /* RESPONSIVE */
     @media(max-width:700px){
@@ -394,14 +522,14 @@
   <h2 class="reveal" id="h2-projects">O que foi construído</h2>
   <div class="stage-grid reveal">
     <div class="panel" id="panel-sites">
-      <div class="panel-head"><div class="panel-title"><span id="ps-title">Sites e sistemas</span><small>HTML · CSS · React</small></div></div>
+      <div class="panel-head"><div class="panel-title"><span id="ps-title">Sites e sistemas</span><small>HTML · CSS · JS</small></div></div>
       <div class="panel-body">
         <div class="stage-tabs" id="stage-tabs"></div>
         <div class="stage-bar">
-          <button class="icon-btn" onclick="setStage(stageIdx-1)" aria-label="Anterior"><i class="ti ti-chevron-left" aria-hidden="true"></i></button>
+          <button class="icon-btn multi" onclick="setStage(stageIdx-1)" aria-label="Anterior"><i class="ti ti-chevron-left" aria-hidden="true"></i></button>
           <div class="url-pill"><i class="ti ti-lock" aria-hidden="true"></i><span id="stage-url"></span></div>
-          <span class="stage-count" id="stage-count"></span>
-          <button class="icon-btn" onclick="setStage(stageIdx+1)" aria-label="Próximo"><i class="ti ti-chevron-right" aria-hidden="true"></i></button>
+          <span class="stage-count multi" id="stage-count"></span>
+          <button class="icon-btn multi" onclick="setStage(stageIdx+1)" aria-label="Próximo"><i class="ti ti-chevron-right" aria-hidden="true"></i></button>
           <a class="visit-btn" id="stage-visit"></a>
         </div>
         <div class="stage-view" id="stage-view"></div>
@@ -420,6 +548,16 @@
           <button type="submit" class="send-btn" aria-label="Enviar"><i class="ti ti-arrow-right" aria-hidden="true"></i></button>
         </form>
       </div>
+    </div>
+  </div>
+  <div class="panel sys-panel reveal" id="panel-systems">
+    <div class="panel-head"><div class="panel-title"><span id="sys-title">Sistemas</span><small id="sys-sub">Web · painéis internos</small></div><div class="stage-tabs" id="sys-tabs"></div></div>
+    <div class="panel-body">
+      <div class="app-window" id="sys-window">
+        <div class="app-chrome"><div class="t-dot r"></div><div class="t-dot y"></div><div class="t-dot g"></div><div class="url-pill"><i class="ti ti-lock" aria-hidden="true"></i><span id="sys-url"></span></div><span class="demo-badge"><i class="ti ti-hand-click" aria-hidden="true"></i><span class="long" id="sys-badge-long"></span><span class="short" id="sys-badge-short"></span></span></div>
+        <div class="app" id="sys-app"></div>
+      </div>
+      <div class="stage-caption" id="sys-caption"></div>
     </div>
   </div>
   <button class="more-toggle reveal" id="more-toggle" onclick="toggleMore()"><span id="more-label">Ver todos os projetos e detalhes técnicos</span><i class="ti ti-chevron-down" aria-hidden="true"></i></button>
@@ -458,11 +596,6 @@
 
 <footer id="footer-text">Construído por Marcos Vinicius · hvsn.com.br</footer>
 
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <button class="lightbox-close" onclick="closeLightbox(event)" aria-label="Fechar"><i class="ti ti-x" aria-hidden="true"></i></button>
-  <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()">
-</div>
-
 <script>
 function setTheme(t){
   document.documentElement.setAttribute('data-theme',t);
@@ -474,22 +607,6 @@ function toggleTheme(){
   const cur=document.documentElement.getAttribute('data-theme');
   setTheme(cur==='dark'?'light':'dark');
 }
-
-function openLightbox(src,alt){
-  const lb=document.getElementById('lightbox');
-  document.getElementById('lightbox-img').src=src;
-  document.getElementById('lightbox-img').alt=alt||'';
-  lb.classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeLightbox(e){
-  if(e)e.stopPropagation();
-  document.getElementById('lightbox').classList.remove('open');
-  document.body.style.overflow='';
-}
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape')closeLightbox();
-});
 
 const T = {
   pt:{
@@ -507,9 +624,8 @@ const T = {
     navAbout:"Sobre",navProjects:"Projetos",navContact:"Contato",
     smallLabel:"Outros projetos entregues",
     stage:{
-      sitesTitle:"Sites e sistemas",botTitle:"Bot de WhatsApp",sim:"Simulação",
+      sitesTitle:"Sites",botTitle:"Bot de WhatsApp",sim:"Simulação",sysTitle:"Sistemas",sysSub:"Web · painéis internos",badgeLong:"Demonstração ao vivo · Clique para explorar",badgeShort:"Demo ao vivo",sysNote:"Demonstração com dados fictícios. O sistema real é privado.",
       visit:"Visitar site",internal:"Uso interno",of:"de",linkLabel:"Abrir boleto",
-      tabs:["Frontal","AVSEG Chat","Sistema de Rotas"],
       nodes:{whats:"WhatsApp",hook:"Webhook",menu:"Menu",bill:"Boleto",rate:"Avaliação",human:"Atendente"},
       placeholder:"Ou escreva como se fosse um associado…",
       more:["Ver todos os projetos e detalhes técnicos","Ocultar detalhes"],
@@ -555,9 +671,8 @@ const T = {
     navAbout:"About",navProjects:"Projects",navContact:"Contact",
     smallLabel:"Other delivered projects",
     stage:{
-      sitesTitle:"Sites and systems",botTitle:"WhatsApp bot",sim:"Simulation",
+      sitesTitle:"Websites",botTitle:"WhatsApp bot",sim:"Simulation",sysTitle:"Systems",sysSub:"Web · internal dashboards",badgeLong:"Live demo · Click to explore",badgeShort:"Live demo",sysNote:"Demo with fictional data. The real system is private. The demo interface stays in Portuguese, like the real one.",
       visit:"Visit site",internal:"Internal use",of:"of",linkLabel:"Open invoice",
-      tabs:["Frontal","AVSEG Chat","Route System"],
       nodes:{whats:"WhatsApp",hook:"Webhook",menu:"Menu",bill:"Invoice",rate:"Rating",human:"Agent"},
       placeholder:"Or type as if you were a member…",
       more:["See all projects and technical details","Hide details"],
@@ -653,44 +768,53 @@ const projects = {
   ]
 };
 
-const featured = {
+const sites = {
   pt:[
-    {title:"Frontal Rastreamento",tags:[{t:"Cliente",c:"amber"},{t:"Site institucional",c:"blue"},{t:"No ar",c:"teal"}],
-     desc:"Landing page institucional para empresa de rastreamento veicular, com foco em conversão via WhatsApp.",
-     features:["Design escuro com identidade visual própria do cliente","Seções de serviços, diferenciais e depoimentos","CTA de WhatsApp fixo e botão flutuante","Totalmente responsivo, otimizado para SEO local"],
-     stack:["HTML","CSS","JavaScript","Nginx","SSL"],
-     media:"brand",img:"assets/img/frontal-logo.png",
-     brandTag:"“A sua localização exata, a qualquer hora, em qualquer lugar.”",
-     link:"https://frontalrastreamento.com/",live:true},
-    {title:"AVSEG Chat",tags:[{t:"Realtime",c:"teal"},{t:"Painel interno",c:"gray"},{t:"Socket.io",c:"blue"}],
-     desc:"Painel proprietário de atendimento humano estilo WhatsApp, substituindo o Chatwoot com solução totalmente controlada.",
-     features:["Interface WhatsApp-like em vanilla JS","Sistema de labels/etiquetas por conversa em tempo real","Templates de resposta rápida com gerenciamento customizado","Destaque visual e alerta sonoro para solicitações de atendimento","Comunicação em tempo real via Socket.io","Backend Node.js 100% proprietário"],
-     stack:["Node.js","Socket.io","Vanilla JS","PostgreSQL","Nginx"],
-     media:"screenshot",img:"assets/img/avseg-chat.png"},
-    {title:"Sistema de Rotas — Transportes",tags:[{t:"Cliente",c:"amber"},{t:"Logística",c:"teal"},{t:"React",c:"gray"}],
-     desc:"Painel de gestão para empresa de transportes: rotas, motoristas, veículos e clientes com dashboards financeiros.",
-     features:["Dashboard com rotas por período, em andamento e concluídas","Gráfico de rotas e valor gerado por mês","Ranking de motoristas por valor gerado","Cadastro de trajetos fixos, veículos e clientes","Tema claro/escuro"],
-     stack:["React","Node.js","PostgreSQL","Chart.js"],
-     media:"screenshot",img:"assets/img/rotas-sistema.png"}
+    {tab:"Frontal",name:"Frontal Rastreamento",host:"frontalrastreamento.com",url:"https://frontalrastreamento.com/",
+     desktop:"assets/img/sites/frontal-desktop.jpg",mobile:"assets/img/sites/frontal-mobile.jpg",
+     tags:[{t:"Cliente",c:"amber"},{t:"Site institucional",c:"blue"},{t:"No ar",c:"teal"}],
+     desc:"Site institucional para empresa de rastreamento veicular, focado em conversão via WhatsApp, com mapa de cobertura, planos e depoimentos.",
+     stack:["HTML","CSS","JavaScript","Nginx","SSL"]},
+    {tab:"LOPES Therapy",name:"LOPES Therapy",host:"2.24.208.32:8080",url:"http://2.24.208.32:8080/",
+     desktop:"assets/img/sites/lopes-desktop.jpg",mobile:"assets/img/sites/lopes-mobile.jpg",
+     tags:[{t:"Site institucional",c:"blue"},{t:"Agendamento",c:"teal"},{t:"WhatsApp",c:"gray"}],
+     desc:"Site para massoterapeuta com catálogo de serviços, depoimentos e agendamento com horários dinâmicos, confirmado pelo WhatsApp.",
+     stack:["HTML","CSS","JavaScript","WhatsApp"]}
   ],
   en:[
-    {title:"Frontal Rastreamento",tags:[{t:"Client",c:"amber"},{t:"Marketing site",c:"blue"},{t:"Live",c:"teal"}],
-     desc:"Institutional landing page for a vehicle tracking company, focused on WhatsApp conversion.",
-     features:["Dark design with the client's own visual identity","Services, differentials and testimonials sections","Fixed WhatsApp CTA and floating button","Fully responsive, optimized for local SEO"],
-     stack:["HTML","CSS","JavaScript","Nginx","SSL"],
-     media:"brand",img:"assets/img/frontal-logo.png",
-     brandTag:"“Your exact location, anytime, anywhere.”",
-     link:"https://frontalrastreamento.com/",live:true},
-    {title:"AVSEG Chat",tags:[{t:"Realtime",c:"teal"},{t:"Internal panel",c:"gray"},{t:"Socket.io",c:"blue"}],
-     desc:"Proprietary WhatsApp-like human agent panel replacing Chatwoot with a fully controlled solution.",
-     features:["WhatsApp-like vanilla JS interface","Real-time label/tag system per conversation","Quick-reply template management","Visual highlight and audio alert for agent requests","Real-time communication via Socket.io","100% proprietary Node.js backend"],
-     stack:["Node.js","Socket.io","Vanilla JS","PostgreSQL","Nginx"],
-     media:"screenshot",img:"assets/img/avseg-chat.png"},
-    {title:"Route Management System",tags:[{t:"Client",c:"amber"},{t:"Logistics",c:"teal"},{t:"React",c:"gray"}],
-     desc:"Management panel for a freight/transportation company: routes, drivers, vehicles and clients with financial dashboards.",
-     features:["Dashboard with routes by period, in progress and completed","Routes and revenue chart by month","Driver ranking by revenue generated","Fixed route, vehicle and client registration","Light/dark theme"],
-     stack:["React","Node.js","PostgreSQL","Chart.js"],
-     media:"screenshot",img:"assets/img/rotas-sistema.png"}
+    {tab:"Frontal",name:"Frontal Rastreamento",host:"frontalrastreamento.com",url:"https://frontalrastreamento.com/",
+     desktop:"assets/img/sites/frontal-desktop.jpg",mobile:"assets/img/sites/frontal-mobile.jpg",
+     tags:[{t:"Client",c:"amber"},{t:"Marketing site",c:"blue"},{t:"Live",c:"teal"}],
+     desc:"Marketing site for a vehicle tracking company, built to convert through WhatsApp, with a coverage map, plans and testimonials.",
+     stack:["HTML","CSS","JavaScript","Nginx","SSL"]},
+    {tab:"LOPES Therapy",name:"LOPES Therapy",host:"2.24.208.32:8080",url:"http://2.24.208.32:8080/",
+     desktop:"assets/img/sites/lopes-desktop.jpg",mobile:"assets/img/sites/lopes-mobile.jpg",
+     tags:[{t:"Marketing site",c:"blue"},{t:"Booking",c:"teal"},{t:"WhatsApp",c:"gray"}],
+     desc:"Website for a massage therapist with a service catalog, testimonials and dynamic-slot booking confirmed through WhatsApp.",
+     stack:["HTML","CSS","JavaScript","WhatsApp"]}
+  ]
+};
+
+const systems = {
+  pt:[
+    {tab:"Sistema de Rotas",name:"Sistema de Rotas para transportadora",host:"rotas.demo",
+     tags:[{t:"Cliente",c:"amber"},{t:"Logística",c:"teal"},{t:"React",c:"gray"}],
+     desc:"Painel de gestão com rotas, motoristas, veículos e clientes, além de dashboards financeiros. Experimente: conclua uma rota e volte ao Painel para ver os números mudarem.",
+     stack:["React","Node.js","PostgreSQL","Chart.js"]},
+    {tab:"AVSEG Chat",name:"AVSEG Chat",host:"chat.demo",
+     tags:[{t:"Realtime",c:"teal"},{t:"Painel interno",c:"gray"},{t:"Socket.io",c:"blue"}],
+     desc:"Painel proprietário de atendimento humano estilo WhatsApp, que substituiu o Chatwoot. Experimente: assuma uma conversa aguardando, responda ao cliente e finalize.",
+     stack:["Node.js","Socket.io","Vanilla JS","PostgreSQL","Nginx"]}
+  ],
+  en:[
+    {tab:"Route System",name:"Route management system for a freight company",host:"rotas.demo",
+     tags:[{t:"Client",c:"amber"},{t:"Logistics",c:"teal"},{t:"React",c:"gray"}],
+     desc:"Management panel with routes, drivers, vehicles and clients, plus financial dashboards. Try it: complete a route and go back to the dashboard to watch the numbers change.",
+     stack:["React","Node.js","PostgreSQL","Chart.js"]},
+    {tab:"AVSEG Chat",name:"AVSEG Chat",host:"chat.demo",
+     tags:[{t:"Realtime",c:"teal"},{t:"Internal panel",c:"gray"},{t:"Socket.io",c:"blue"}],
+     desc:"Proprietary WhatsApp-style human support panel that replaced Chatwoot. Try it: take a waiting conversation, reply to the customer and close it.",
+     stack:["Node.js","Socket.io","Vanilla JS","PostgreSQL","Nginx"]}
   ]
 };
 
@@ -724,6 +848,7 @@ function setLang(l){
   renderStats();
   renderSmall();
   renderStage();
+  renderSystems();
   renderBot();
   renderMoreLabel();
   renderProjects();
@@ -753,49 +878,278 @@ let stageIdx=0, botKey='bill', botTimers=[], botStarted=false, moreOpen=false;
 
 function byId(i){return document.getElementById(i)}
 
-function fitFrames(){
-  document.querySelectorAll('.frame-fit').forEach(f=>{
-    const box=f.parentElement;
-    if(box.clientWidth)f.style.transform=`scale(${box.clientWidth/Number(f.dataset.w)})`;
+const reduceMotion=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+let tourAnims=[], tourTimer=null;
+
+function stopTours(){tourAnims.forEach(a=>a.cancel());tourAnims=[]}
+
+function startTours(){
+  stopTours();
+  if(reduceMotion)return;
+  document.querySelectorAll('#stage-view img.tour').forEach(img=>{
+    const run=()=>{
+      const box=img.parentElement, dist=img.offsetHeight-box.clientHeight;
+      if(dist<=40)return;
+      const perScreen=img.dataset.speed?Number(img.dataset.speed):0.5;
+      const travel=Math.min(42000,Math.max(9000,dist/(box.clientHeight*perScreen)*1000));
+      const total=travel*2+3200;
+      const up=travel*0.8, hold=1600;
+      const t=v=>v/total;
+      const end=`translateY(-${dist}px)`;
+      const a=img.animate([
+        {transform:'translateY(0)',offset:0,easing:'ease-in-out'},
+        {transform:'translateY(0)',offset:t(hold)},
+        {transform:end,offset:t(hold+travel),easing:'linear'},
+        {transform:end,offset:t(hold+travel+hold),easing:'ease-in-out'},
+        {transform:'translateY(0)',offset:t(hold+travel+hold+up)},
+        {transform:'translateY(0)',offset:1}
+      ],{duration:hold+travel+hold+up+400,iterations:Infinity});
+      img._anim=a;tourAnims.push(a);
+    };
+    if(img.complete&&img.naturalWidth)run();else img.addEventListener('load',run,{once:true});
   });
 }
 
 function setStage(i){
-  const n=featured[lang].length;
+  const n=sites[lang].length;
   stageIdx=(i+n)%n;
   renderStage();
 }
 
 function renderStage(){
-  const st=T[lang].stage, list=featured[lang], n=list.length, p=list[stageIdx], live=!!p.link;
+  const st=T[lang].stage, list=sites[lang], n=list.length, p=list[stageIdx];
   byId('ps-title').textContent=st.sitesTitle;
-  byId('stage-tabs').innerHTML=list.map((_,i)=>`<button class="stage-tab${i===stageIdx?' active':''}" onclick="setStage(${i})">${st.tabs[i]}</button>`).join('');
-  byId('stage-url').textContent=live
-    ? p.link.replace(/^https?:\/\//,'').replace(/\/$/,'')
-    : p.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+  byId('stage-tabs').innerHTML=list.map((s,i)=>`<button class="stage-tab${i===stageIdx?' active':''}" onclick="setStage(${i})">${s.tab}</button>`).join('');
+  byId('stage-url').textContent=p.host;
   byId('stage-count').textContent=`${stageIdx+1} ${st.of} ${n}`;
+  document.querySelectorAll('#panel-sites .multi').forEach(e=>e.style.display=n>1?'':'none');
   const visit=byId('stage-visit');
-  if(live){
-    visit.href=p.link;visit.target='_blank';visit.rel='noopener';visit.className='visit-btn';
-    visit.innerHTML=`${st.visit} <i class="ti ti-arrow-up-right" aria-hidden="true"></i>`;
-  }else{
-    visit.removeAttribute('href');visit.removeAttribute('target');visit.className='visit-btn off';
-    visit.innerHTML=`<i class="ti ti-lock" aria-hidden="true"></i> ${st.internal}`;
-  }
-  byId('stage-view').innerHTML=live
-    ? `<span class="live-badge"><span class="dot"></span>Live</span>
-       <div class="laptop swap"><div class="laptop-screen"><iframe class="frame-fit" data-w="1280" data-h="800" src="${p.link}" title="${p.title}" loading="lazy" sandbox="allow-scripts allow-same-origin" tabindex="-1"></iframe><a class="hit" href="${p.link}" target="_blank" rel="noopener" aria-label="${st.visit}"></a></div><div class="laptop-base"></div></div>
-       <div class="phone swap"><div class="phone-screen"><iframe class="frame-fit" data-w="390" data-h="820" src="${p.link}" title="${p.title} mobile" loading="lazy" sandbox="allow-scripts allow-same-origin" tabindex="-1"></iframe></div></div>`
-    : `<div class="laptop swap"><div class="laptop-screen shot" onclick="openLightbox('${p.img}','${p.title.replace(/'/g,"\\'")}')"><img src="${p.img}" alt="${p.title}"><span class="zoom-hint"><i class="ti ti-zoom-in" aria-hidden="true"></i></span></div><div class="laptop-base"></div></div>`;
+  visit.href=p.url;visit.target='_blank';visit.rel='noopener';visit.className='visit-btn';
+  visit.innerHTML=`${st.visit} <i class="ti ti-arrow-up-right" aria-hidden="true"></i>`;
+  byId('stage-view').innerHTML=`<span class="live-badge"><span class="dot"></span>Live</span>
+    <div class="laptop swap"><div class="laptop-screen"><img class="tour" data-speed="0.42" src="${p.desktop}" alt="${p.name}"><a class="hit" href="${p.url}" target="_blank" rel="noopener" aria-label="${st.visit}"></a></div><div class="laptop-base"></div></div>
+    <div class="phone swap"><div class="phone-screen"><img class="tour" data-speed="0.3" src="${p.mobile}" alt="${p.name} mobile"></div></div>`;
   byId('stage-caption').innerHTML=`
     <div class="proj-tags">${p.tags.map(tag=>`<span class="tag ${tag.c}">${tag.t}</span>`).join('')}</div>
-    <div class="cap-title">${p.title}</div>
+    <div class="cap-title">${p.name}</div>
     <div class="cap-desc">${p.desc}</div>
     <div class="proj-stack" style="margin-top:4px">${p.stack.map(s=>`<span class="stack-pill">${s}</span>`).join('')}</div>`;
-  fitFrames();
+  startTours();
 }
-window.addEventListener('resize',fitFrames);
-if(window.ResizeObserver)new ResizeObserver(fitFrames).observe(byId('stage-view'));
+function restartToursSoon(){clearTimeout(tourTimer);tourTimer=setTimeout(startTours,200)}
+window.addEventListener('resize',restartToursSoon);
+if(window.ResizeObserver)new ResizeObserver(restartToursSoon).observe(byId('stage-view'));
+document.addEventListener('mouseover',e=>{
+  const s=e.target.closest&&e.target.closest('#stage-view .laptop-screen, #stage-view .phone-screen');
+  if(s){const i=s.querySelector('img.tour');if(i&&i._anim)i._anim.pause()}
+});
+document.addEventListener('mouseout',e=>{
+  const s=e.target.closest&&e.target.closest('#stage-view .laptop-screen, #stage-view .phone-screen');
+  if(s&&!s.contains(e.relatedTarget)){const i=s.querySelector('img.tour');if(i&&i._anim)i._anim.play()}
+});
+
+/* ===== SISTEMAS: demos clicáveis com dados fictícios ===== */
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const brl=n=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+let sysIdx=0;
+
+/* ---------- Sistema de Rotas ---------- */
+const RT={
+  view:'painel',filter:'all',
+  drivers:['Carlos Almeida','Rafael Souza','Marcos Lima','João Pedro'],
+  vehicles:[['ABC-1D23','Truck','Em rota'],['FGH-4J56','Van','Em rota'],['KLM-7N89','Carreta','Em rota'],['QRS-2T34','Truck','Disponível']],
+  clients:[['Distribuidora Aurora','Feira de Santana'],['Mercado Bom Preço','Salvador'],['Construtora Nova Era','Camaçari'],['Farmácia Vida','Alagoinhas']],
+  fixed:[['Feira de Santana → Salvador','108 km',780],['Feira de Santana → Alagoinhas','98 km',640],['Salvador → Camaçari','48 km',420],['Camaçari → Feira de Santana','150 km',690]],
+  routes:[
+    {id:'R-1043',t:'Feira de Santana → Camaçari',c:3,m:3,v:3,s:'ag',val:720},
+    {id:'R-1042',t:'Feira de Santana → Salvador',c:0,m:0,v:0,s:'and',val:780},
+    {id:'R-1041',t:'Feira de Santana → Alagoinhas',c:3,m:1,v:1,s:'and',val:640},
+    {id:'R-1040',t:'Salvador → Camaçari',c:2,m:2,v:2,s:'and',val:420},
+    {id:'R-1039',t:'Feira de Santana → Salvador',c:1,m:0,v:0,s:'ok',val:780},
+    {id:'R-1038',t:'Camaçari → Feira de Santana',c:2,m:3,v:2,s:'ok',val:690},
+    {id:'R-1037',t:'Feira de Santana → Alagoinhas',c:0,m:1,v:1,s:'ok',val:640},
+    {id:'R-1036',t:'Salvador → Feira de Santana',c:1,m:2,v:0,s:'ok',val:810}
+  ],
+  months:[['mai',9,7200],['jun',11,8650],['jul',8,6100],['ago',12,9400],['set',10,8100]]
+};
+const RT_NAV=[['painel','Painel','ti-layout-dashboard'],['rotas','Rotas','ti-route'],['trajetos','Trajetos fixos','ti-map-2'],['motoristas','Motoristas','ti-users'],['veiculos','Veículos','ti-truck'],['clientes','Clientes','ti-building']];
+const RT_ST={and:['Em andamento','and'],ok:['Concluída','ok'],ag:['Agendada','ag']};
+
+function rtChart(){
+  const R=RT.routes, pay=R.filter(r=>r.s==='ok').reduce((a,r)=>a+r.val,0);
+  const data=RT.months.concat([['out',R.length,pay]]);
+  const maxV=Math.max(...data.map(d=>d[2])), maxQ=Math.max(...data.map(d=>d[1]));
+  const cw=52, pts=[];
+  const bars=data.map((d,i)=>{
+    const x=14+i*cw, h=Math.round(d[2]/maxV*92), qy=108-Math.round(d[1]/maxQ*88);
+    pts.push(`${x+18},${qy}`);
+    return `<rect x="${x+4}" y="${108-h}" width="28" height="${h}" rx="3" fill="#3b6fc9" opacity=".75"/><text x="${x+18}" y="124" text-anchor="middle" fill="#7883a0" font-size="9">${d[0]}</text>`;
+  }).join('');
+  const dots=pts.map(p=>`<circle cx="${p.split(',')[0]}" cy="${p.split(',')[1]}" r="3" fill="#d1273d"/>`).join('');
+  return `<svg viewBox="0 0 330 130" width="100%" role="img" aria-label="Rotas e valor por mês"><line x1="8" y1="108" x2="326" y2="108" stroke="#2a3350"/>${bars}<polyline points="${pts.join(' ')}" fill="none" stroke="#d1273d" stroke-width="2"/>${dots}</svg>`;
+}
+function rtDonut(){
+  const R=RT.routes, cs=[['and','#3b6fc9'],['ok','#16875a'],['ag','#d9a441']], tot=R.length, C=2*Math.PI*34;
+  let off=0;
+  const arcs=cs.map(([k,col])=>{
+    const n=R.filter(r=>r.s===k).length, len=n/tot*C;
+    const el=`<circle cx="50" cy="50" r="34" fill="none" stroke="${col}" stroke-width="14" stroke-dasharray="${len} ${C-len}" stroke-dashoffset="${-off}" transform="rotate(-90 50 50)"/>`;
+    off+=len;return el;
+  }).join('');
+  const leg=cs.map(([k,col])=>`<span><i style="background:${col}"></i>${RT_ST[k][0]} <b>${R.filter(r=>r.s===k).length}</b></span>`).join('');
+  return `<div class="donut"><svg viewBox="0 0 100 100" width="104" height="104">${arcs}<text x="50" y="55" text-anchor="middle" fill="#eef1f8" font-size="18" font-weight="700">${tot}</text></svg><div class="legend">${leg}</div></div>`;
+}
+function rtPainel(){
+  const R=RT.routes, n=s=>R.filter(r=>r.s===s).length, pay=R.filter(r=>r.s==='ok').reduce((a,r)=>a+r.val,0);
+  const byDrv=RT.drivers.map((d,i)=>[d,R.filter(r=>r.m===i).reduce((a,r)=>a+r.val,0)]).sort((a,b)=>b[1]-a[1]);
+  const mx=byDrv[0][1]||1;
+  return `<h3>Painel</h3>
+  <div class="kpis">
+    <div class="kpi"><small><i class="ti ti-route"></i>Rotas no período</small><b>${R.length}</b></div>
+    <div class="kpi"><small><i class="ti ti-clock"></i>Em andamento</small><b>${n('and')}</b></div>
+    <div class="kpi"><small><i class="ti ti-truck-delivery"></i>Concluídas</small><b>${n('ok')}</b></div>
+    <div class="kpi"><small><i class="ti ti-wallet"></i>Valor a pagar</small><b>${brl(pay)}</b></div>
+  </div>
+  <div class="cards2"><div class="card"><h4>Rotas e valor por mês</h4>${rtChart()}</div><div class="card"><h4>Rotas por status</h4>${rtDonut()}</div></div>
+  <div class="card" style="margin-top:10px"><h4>Motoristas por valor gerado</h4>${byDrv.map(([d,v])=>`<div class="hbar"><span>${esc(d)}</span><div><i style="width:${Math.round(v/mx*100)}%"></i></div><b>${brl(v)}</b></div>`).join('')}</div>`;
+}
+function rtRotas(){
+  const f=RT.filter, list=RT.routes.filter(r=>f==='all'||r.s===f);
+  const chips=[['all','Todas'],['and','Em andamento'],['ok','Concluídas'],['ag','Agendadas']].map(([k,l])=>`<button class="rchip${f===k?' on':''}" data-filter="${k}">${l}</button>`).join('');
+  const rows=list.map(r=>{
+    const act=r.s==='and'?`<button class="rbtn" data-act="${r.id}">Concluir</button>`:r.s==='ag'?`<button class="rbtn alt" data-act="${r.id}">Iniciar</button>`:'<span class="dim">Finalizada</span>';
+    return `<tr><td>${r.id}</td><td>${r.t}</td><td>${esc(RT.clients[r.c][0])}</td><td>${esc(RT.drivers[r.m])}</td><td>${RT.vehicles[r.v][0]}</td><td><span class="st ${r.s}">${RT_ST[r.s][0]}</span></td><td>${brl(r.val)}</td><td>${act}</td></tr>`;
+  }).join('');
+  return `<h3>Rotas</h3><div class="rchips">${chips}</div><div class="tbl"><table><thead><tr><th>Código</th><th>Trajeto</th><th>Cliente</th><th>Motorista</th><th>Veículo</th><th>Status</th><th>Valor</th><th></th></tr></thead><tbody>${rows}</tbody></table></div><p class="hint"><i class="ti ti-hand-click"></i> Conclua ou inicie uma rota e volte ao Painel: os números acompanham.</p>`;
+}
+function rtTable(title,head,rows){
+  return `<h3>${title}</h3><div class="tbl"><table><thead><tr>${head.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+}
+function rtView(){
+  const R=RT.routes;
+  switch(RT.view){
+    case 'painel':return rtPainel();
+    case 'rotas':return rtRotas();
+    case 'trajetos':return rtTable('Trajetos fixos',['Trajeto','Distância','Valor base'],RT.fixed.map(f=>[f[0],f[1],brl(f[2])]));
+    case 'motoristas':return rtTable('Motoristas',['Motorista','Rotas','Valor gerado'],RT.drivers.map((d,i)=>[esc(d),R.filter(r=>r.m===i).length,brl(R.filter(r=>r.m===i).reduce((a,r)=>a+r.val,0))]));
+    case 'veiculos':return rtTable('Veículos',['Placa','Tipo','Situação'],RT.vehicles.map(v=>[v[0],v[1],`<span class="st ${v[2]==='Disponível'?'ok':'and'}">${v[2]}</span>`]));
+    case 'clientes':return rtTable('Clientes',['Cliente','Cidade','Rotas'],RT.clients.map((c,i)=>[esc(c[0]),c[1],R.filter(r=>r.c===i).length]));
+  }
+}
+function rtRender(){
+  byId('sys-app').className='app rotas';
+  byId('sys-app').innerHTML=`<aside class="rt-side"><div class="rt-brand">Transportes e Logística</div>${RT_NAV.map(([k,l,ic])=>`<button class="rt-nav${RT.view===k?' active':''}" data-nav="${k}"><i class="ti ${ic}"></i>${l}</button>`).join('')}</aside><main class="rt-main">${rtView()}</main>`;
+}
+function rtClick(e){
+  const nav=e.target.closest('[data-nav]'),flt=e.target.closest('[data-filter]'),act=e.target.closest('[data-act]');
+  if(nav){RT.view=nav.dataset.nav;rtRender()}
+  else if(flt){RT.filter=flt.dataset.filter;rtRender()}
+  else if(act){const r=RT.routes.find(x=>x.id===act.dataset.act);if(r){r.s=r.s==='ag'?'and':'ok';rtRender()}}
+}
+
+/* ---------- AVSEG Chat ---------- */
+const CH={
+  filter:'all',sel:null,q:'',
+  convs:[
+    {id:1,n:'Marina Souza',p:'(75) 9•••-3021',s:'wait',mine:false,lab:['2ª via','#f5c400'],unread:2,msgs:[{w:'c',t:'Boa tarde! Preciso da 2ª via do meu boleto.',h:'14:02'},{w:'b',t:'Claro! Vou te encaminhar para um atendente.',h:'14:02'}]},
+    {id:2,n:'Carlos Eduardo',p:'(75) 9•••-7788',s:'att',mine:true,lab:['Dúvida','#3b82f6'],unread:0,msgs:[{w:'c',t:'Meu plano cobre assistência 24h na estrada?',h:'13:41'},{w:'a',t:'Oi, Carlos! Cobre sim, em todo o território nacional.',h:'13:44'},{w:'c',t:'E se eu estiver fora da cidade?',h:'13:45'}]},
+    {id:3,n:'Juliana Prado',p:'(71) 9•••-1409',s:'wait',mine:false,lab:['Cancelamento','#ef4444'],unread:1,msgs:[{w:'c',t:'Quero falar sobre o cancelamento do meu contrato.',h:'14:10'}]},
+    {id:4,n:'Roberto Lima',p:'(75) 9•••-5562',s:'att',mine:false,lab:['Cobertura','#22c55e'],unread:0,msgs:[{w:'c',t:'Vocês cobrem vidros e faróis?',h:'12:20'},{w:'a',t:'Cobrimos sim! Vou te enviar os detalhes.',h:'12:26'}]},
+    {id:5,n:'Fernanda Alves',p:'(75) 9•••-9034',s:'done',mine:true,lab:['Resolvido','#8a8f98'],unread:0,msgs:[{w:'c',t:'Consegui pagar, obrigada!',h:'10:05'},{w:'a',t:'Por nada, Fernanda! Qualquer coisa é só chamar.',h:'10:07'}]}
+  ],
+  filters:[['all','Todas','#8a8f98'],['mine','Minhas','#3b82f6'],['wait','Aguardando','#f5c400'],['att','Em atendimento','#22c55e'],['done','Finalizadas','#8a8f98']],
+  tpl:['Olá! Como posso ajudar?','Segue o link do boleto abaixo.','Vou verificar e já retorno.'],
+  auto:['Certo, obrigado!','Perfeito, fico no aguardo.','Muito obrigada pela ajuda!']
+};
+const chMatch=(c,f)=>f==='all'||(f==='mine'&&c.mine&&c.s!=='done')||(f==='wait'&&c.s==='wait')||(f==='att'&&c.s==='att')||(f==='done'&&c.s==='done');
+const chNow=()=>new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+
+function chSide(){
+  const att=CH.convs.filter(c=>c.s==='att').length, wait=CH.convs.filter(c=>c.s==='wait').length;
+  byId('ch-side').innerHTML=`<div class="ch-brand"><i class="ti ti-message-circle-filled"></i>AVSEG Chat</div>
+    <div class="ch-user">Administrador<span>demo</span></div>
+    <div class="ch-stats"><div><b>${att}</b><small>Conversas ativas</small></div><div><b>${wait}</b><small>Aguardando</small></div></div>
+    ${CH.filters.map(([k,l,col])=>`<button class="ch-f${CH.filter===k?' on':''}" data-chf="${k}"><i style="background:${col}"></i>${l}<em>${CH.convs.filter(c=>chMatch(c,k)).length}</em></button>`).join('')}`;
+}
+function chList(){
+  const q=CH.q.toLowerCase(), items=CH.convs.filter(c=>chMatch(c,CH.filter)&&(!q||c.n.toLowerCase().includes(q)||c.p.includes(q)));
+  byId('ch-items').innerHTML=items.length?items.map(c=>{
+    const last=c.msgs[c.msgs.length-1];
+    return `<button class="ch-item${CH.sel===c.id?' on':''}" data-conv="${c.id}"><span class="av">${esc(c.n[0])}</span><span class="tx"><b>${esc(c.n)}</b><small>${esc(last.t)}</small></span><span class="mt">${last.h}${c.unread?`<em>${c.unread}</em>`:''}</span></button>`;
+  }).join(''):'<p class="empty">Nenhuma conversa encontrada.</p>';
+}
+function chBubble(m){return `<div class="mb ${m.w==='c'?'in':'out'}${m.w==='b'?' bot':''}">${esc(m.t)}<small>${m.h}</small></div>`}
+function chPane(){
+  const c=CH.convs.find(x=>x.id===CH.sel), el=byId('ch-pane');
+  byId('sys-app').classList.toggle('has-sel',!!c);
+  if(!c){el.innerHTML='<div class="ch-empty"><i class="ti ti-message-circle"></i><b>Selecione uma conversa</b><small>Escolha uma conversa da lista ao lado para começar</small></div>';return}
+  const stl={wait:'Aguardando',att:'Em atendimento',done:'Finalizada'}[c.s];
+  const btn=c.s==='wait'?`<button class="rbtn" data-chact="take">Assumir</button>`:c.s==='att'?`<button class="rbtn alt" data-chact="end">Finalizar</button>`:'';
+  el.innerHTML=`<div class="ch-head"><button class="back" data-chact="back" aria-label="Voltar"><i class="ti ti-arrow-left"></i></button><span class="av">${esc(c.n[0])}</span><div><b>${esc(c.n)}</b><small>${c.p}</small></div><span class="lab" style="--c:${c.lab[1]}">${c.lab[0]}</span><span class="stp ${c.s}">${stl}</span>${btn}</div>
+    <div class="ch-msgs" id="ch-msgs">${c.msgs.map(chBubble).join('')}</div>
+    <div class="ch-tpl">${CH.tpl.map(t=>`<button type="button" data-tpl="${esc(t)}">${esc(t)}</button>`).join('')}</div>
+    <form class="ch-form" id="ch-form"><input id="ch-input" autocomplete="off" maxlength="120" placeholder="${c.s==='done'?'Conversa finalizada':'Digite uma mensagem…'}" ${c.s==='done'?'disabled':''}><button class="send" ${c.s==='done'?'disabled':''} aria-label="Enviar"><i class="ti ti-send"></i></button></form>`;
+  const ms=byId('ch-msgs');ms.scrollTop=ms.scrollHeight;
+}
+function chRender(){
+  byId('sys-app').className='app chat'+(CH.sel?' has-sel':'');
+  byId('sys-app').innerHTML=`<aside class="ch-side" id="ch-side"></aside><section class="ch-list"><h3>Conversas</h3><input id="ch-q" placeholder="Buscar por nome ou telefone…" value="${esc(CH.q)}"><div id="ch-items"></div></section><section class="ch-pane" id="ch-pane"></section>`;
+  chSide();chList();chPane();
+}
+function chSend(text){
+  const c=CH.convs.find(x=>x.id===CH.sel), inp=byId('ch-input');
+  const t=(text!==undefined?text:inp&&inp.value).trim();
+  if(!c||c.s==='done'||!t)return;
+  if(c.s==='wait'){c.s='att';c.mine=true}
+  c.msgs.push({w:'a',t,h:chNow()});c.unread=0;
+  const id=c.id;
+  chSide();chList();chPane();
+  const ni=byId('ch-input');if(ni)ni.focus();
+  setTimeout(()=>{
+    const cc=CH.convs.find(x=>x.id===id);
+    if(!cc||cc.s==='done'||sysIdx!==1)return;
+    cc.msgs.push({w:'c',t:CH.auto[Math.floor(Math.random()*CH.auto.length)],h:chNow()});
+    if(CH.sel===id){const ms=byId('ch-msgs');if(ms){ms.insertAdjacentHTML('beforeend',chBubble(cc.msgs[cc.msgs.length-1]));ms.scrollTop=ms.scrollHeight}}
+    else cc.unread++;
+    chList();
+  },1500);
+}
+function chClick(e){
+  const f=e.target.closest('[data-chf]'),cv=e.target.closest('[data-conv]'),ac=e.target.closest('[data-chact]'),tp=e.target.closest('[data-tpl]');
+  if(f){CH.filter=f.dataset.chf;chSide();chList()}
+  else if(cv){CH.sel=Number(cv.dataset.conv);const c=CH.convs.find(x=>x.id===CH.sel);c.unread=0;chSide();chList();chPane()}
+  else if(ac){
+    const c=CH.convs.find(x=>x.id===CH.sel),k=ac.dataset.chact;
+    if(k==='back'){CH.sel=null;chList();chPane();return}
+    if(!c)return;
+    if(k==='take'){c.s='att';c.mine=true}
+    if(k==='end'){c.s='done'}
+    chSide();chList();chPane();
+  }
+  else if(tp){const i=byId('ch-input');if(i&&!i.disabled){i.value=tp.dataset.tpl;i.focus()}}
+}
+
+/* ---------- Caixa Sistemas ---------- */
+function setSystem(i){sysIdx=i;renderSystems()}
+function renderSystems(){
+  const st=T[lang].stage, list=systems[lang], p=list[sysIdx];
+  byId('sys-title').textContent=st.sysTitle;byId('sys-sub').textContent=st.sysSub;
+  byId('sys-tabs').innerHTML=list.map((s,i)=>`<button class="stage-tab${i===sysIdx?' active':''}" onclick="setSystem(${i})">${s.tab}</button>`).join('');
+  byId('sys-url').textContent=p.host;
+  byId('sys-badge-long').textContent=st.badgeLong;byId('sys-badge-short').textContent=st.badgeShort;
+  byId('sys-caption').innerHTML=`<div class="proj-tags">${p.tags.map(tag=>`<span class="tag ${tag.c}">${tag.t}</span>`).join('')}</div><div class="cap-title">${p.name}</div><div class="cap-desc">${p.desc}</div><div class="proj-stack" style="margin-top:4px">${p.stack.map(s=>`<span class="stack-pill">${s}</span>`).join('')}</div><div class="cap-note"><i class="ti ti-info-circle" aria-hidden="true"></i> ${st.sysNote}</div>`;
+  if(sysIdx===0)rtRender();else chRender();
+}
+function initSystems(){
+  const win=byId('sys-window'), app=byId('sys-app');
+  win.addEventListener('click',e=>{
+    if(e.target.closest('#sys-app'))win.classList.add('touched');
+    if(!e.target.closest('#sys-app'))return;
+    if(sysIdx===0)rtClick(e);else chClick(e);
+  });
+  app.addEventListener('input',e=>{if(e.target.id==='ch-q'){CH.q=e.target.value;chList()}});
+  app.addEventListener('submit',e=>{e.preventDefault();if(sysIdx===1)chSend()});
+}
 
 function addLog(l){
   const log=byId('log'), d=document.createElement('div');
@@ -1017,6 +1371,8 @@ function initNavScrollSpy(){
 
 renderStats();
 renderStage();
+renderSystems();
+initSystems();
 renderBot();
 renderProjects();
 renderSmall();
