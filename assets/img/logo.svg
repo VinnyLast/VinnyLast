@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16 16 68 68" width="64" height="64">
+  <style>@media (prefers-color-scheme: light){.s0{stop-color:#8a6a2b}.s1{stop-color:#c9a95e}.s2{stop-color:#a8873d}.s3{stop-color:#6b5020}}</style>
+  <defs><linearGradient id="g" x1="22" y1="22" x2="78" y2="81" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#b8964a" class="s0"/><stop offset="0.45" stop-color="#f1e0a0" class="s1"/><stop offset="0.72" stop-color="#d9c07a" class="s2"/><stop offset="1" stop-color="#9c7a40" class="s3"/></linearGradient></defs>
+  <path d="M30 58 L22 50 L50 22 L78 50 L70 58" fill="none" stroke="url(#g)" stroke-width="5.2" stroke-linejoin="miter" stroke-miterlimit="10" stroke-linecap="butt"/>
+  <polygon points="50,40 60,50 50,60 40,50" fill="url(#g)"/>
+  <polygon points="31,62 40.2,62 50,71.8 59.8,62 69,62 50,81" fill="url(#g)"/>
+</svg>
