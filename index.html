@@ -612,7 +612,7 @@ const T = {
     smallLabel:"Outros projetos entregues",
     stage:{
       sitesTitle:"Sites",botTitle:"Bot de WhatsApp",sim:"Simulação",sysTitle:"Sistemas",sysSub:"Web · painéis internos",badgeLong:"Demonstração ao vivo · Clique para explorar",badgeShort:"Demo ao vivo",sysNote:"Demonstração com dados fictícios. O sistema real é privado.",
-      visit:"Visitar site",internal:"Uso interno",of:"de",linkLabel:"Abrir boleto",
+      visit:"Visitar site",soon:"Em breve",internal:"Uso interno",of:"de",linkLabel:"Abrir boleto",
       nodes:{whats:"WhatsApp",hook:"Webhook",menu:"Menu",bill:"Boleto",rate:"Avaliação",human:"Atendente"},
       placeholder:"Ou escreva como se fosse um associado…",
       more:["Ver todos os projetos e detalhes técnicos","Ocultar detalhes"],
@@ -654,7 +654,7 @@ const T = {
     smallLabel:"Other delivered projects",
     stage:{
       sitesTitle:"Websites",botTitle:"WhatsApp bot",sim:"Simulation",sysTitle:"Systems",sysSub:"Web · internal dashboards",badgeLong:"Live demo · Click to explore",badgeShort:"Live demo",sysNote:"Demo with fictional data. The real system is private. The demo interface stays in Portuguese, like the real one.",
-      visit:"Visit site",internal:"Internal use",of:"of",linkLabel:"Open invoice",
+      visit:"Visit site",soon:"Coming soon",internal:"Internal use",of:"of",linkLabel:"Open invoice",
       nodes:{whats:"WhatsApp",hook:"Webhook",menu:"Menu",bill:"Invoice",rate:"Rating",human:"Agent"},
       placeholder:"Or type as if you were a member…",
       more:["See all projects and technical details","Hide details"],
@@ -752,7 +752,7 @@ const sites = {
      tags:[{t:"Cliente",c:"amber"},{t:"Site institucional",c:"blue"},{t:"No ar",c:"teal"}],
      desc:"Site institucional para empresa de rastreamento veicular, focado em conversão via WhatsApp, com mapa de cobertura, planos e depoimentos.",
      stack:["HTML","CSS","JavaScript","Nginx","SSL"]},
-    {tab:"LOPES Therapy",name:"LOPES Therapy",host:"2.24.208.32:8080",url:"http://2.24.208.32:8080/",
+    {tab:"LOPES Therapy",name:"LOPES Therapy",host:"",url:null,
      desktop:"assets/img/sites/lopes-desktop.jpg",mobile:"assets/img/sites/lopes-mobile.jpg",
      tags:[{t:"Site institucional",c:"blue"},{t:"Agendamento",c:"teal"},{t:"WhatsApp",c:"gray"}],
      desc:"Site para massoterapeuta com catálogo de serviços, depoimentos e agendamento com horários dinâmicos, confirmado pelo WhatsApp.",
@@ -764,7 +764,7 @@ const sites = {
      tags:[{t:"Client",c:"amber"},{t:"Marketing site",c:"blue"},{t:"Live",c:"teal"}],
      desc:"Marketing site for a vehicle tracking company, built to convert through WhatsApp, with a coverage map, plans and testimonials.",
      stack:["HTML","CSS","JavaScript","Nginx","SSL"]},
-    {tab:"LOPES Therapy",name:"LOPES Therapy",host:"2.24.208.32:8080",url:"http://2.24.208.32:8080/",
+    {tab:"LOPES Therapy",name:"LOPES Therapy",host:"",url:null,
      desktop:"assets/img/sites/lopes-desktop.jpg",mobile:"assets/img/sites/lopes-mobile.jpg",
      tags:[{t:"Marketing site",c:"blue"},{t:"Booking",c:"teal"},{t:"WhatsApp",c:"gray"}],
      desc:"Website for a massage therapist with a service catalog, testimonials and dynamic-slot booking confirmed through WhatsApp.",
@@ -896,14 +896,19 @@ function renderStage(){
   const st=T[lang].stage, list=sites[lang], n=list.length, p=list[stageIdx];
   byId('ps-title').textContent=st.sitesTitle;
   byId('stage-tabs').innerHTML=list.map((s,i)=>`<button class="stage-tab${i===stageIdx?' active':''}" onclick="setStage(${i})">${s.tab}</button>`).join('');
-  byId('stage-url').textContent=p.host;
+  byId('stage-url').textContent=p.url?p.host:st.soon;
   byId('stage-count').textContent=`${stageIdx+1} ${st.of} ${n}`;
   document.querySelectorAll('#panel-sites .multi').forEach(e=>e.style.display=n>1?'':'none');
   const visit=byId('stage-visit');
-  visit.href=p.url;visit.target='_blank';visit.rel='noopener';visit.className='visit-btn';
-  visit.innerHTML=`${st.visit} <i class="ti ti-arrow-up-right" aria-hidden="true"></i>`;
-  byId('stage-view').innerHTML=`<span class="live-badge"><span class="dot"></span>Live</span>
-    <div class="laptop swap"><div class="laptop-screen"><img class="tour" data-speed="0.42" src="${p.desktop}" alt="${p.name}"><a class="hit" href="${p.url}" target="_blank" rel="noopener" aria-label="${st.visit}"></a></div><div class="laptop-base"></div></div>
+  if(p.url){
+    visit.href=p.url;visit.target='_blank';visit.rel='noopener';visit.className='visit-btn';
+    visit.innerHTML=`${st.visit} <i class="ti ti-arrow-up-right" aria-hidden="true"></i>`;
+  }else{
+    visit.removeAttribute('href');visit.removeAttribute('target');visit.removeAttribute('rel');visit.className='visit-btn off';
+    visit.innerHTML=`<i class="ti ti-clock" aria-hidden="true"></i> ${st.soon}`;
+  }
+  byId('stage-view').innerHTML=`${p.url?'<span class="live-badge"><span class="dot"></span>Live</span>':''}
+    <div class="laptop swap"><div class="laptop-screen"><img class="tour" data-speed="0.42" src="${p.desktop}" alt="${p.name}">${p.url?`<a class="hit" href="${p.url}" target="_blank" rel="noopener" aria-label="${st.visit}"></a>`:''}</div><div class="laptop-base"></div></div>
     <div class="phone swap"><div class="phone-screen"><img class="tour" data-speed="0.3" src="${p.mobile}" alt="${p.name} mobile"></div></div>`;
   byId('stage-caption').innerHTML=`
     <div class="proj-tags">${p.tags.map(tag=>`<span class="tag ${tag.c}">${tag.t}</span>`).join('')}</div>
