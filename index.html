@@ -145,9 +145,9 @@
     .stack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:1.5rem}
     .stack-item{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;display:flex;align-items:center;gap:14px;transition:border-color .2s,transform .2s}
     .stack-item:hover{border-color:var(--border2);transform:translateY(-2px)}
-    .stack-icon-wrap{width:32px;height:32px;position:relative;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-    .stack-icon-wrap::before{content:'';position:absolute;inset:0;background:var(--gold-dim);border:1px solid var(--border2);border-radius:7px;transform:rotate(45deg)}
-    .stack-icon{position:relative;font-size:15px;z-index:1}
+    .stack-icon-wrap{width:40px;height:40px;border-radius:11px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .stack-logo{width:22px;height:22px;display:block;object-fit:contain}
+    .stack-logo.mono{background:var(--text);-webkit-mask:var(--logo) center/contain no-repeat;mask:var(--logo) center/contain no-repeat}
     .stack-name{font-size:13px;font-weight:600;color:var(--text)}
     .stack-role{font-size:11px;color:var(--hint)}
 
@@ -560,15 +560,15 @@
   <div class="section-label reveal">stack</div>
   <h2 class="reveal" id="h2-stack">Tecnologias em uso</h2>
   <div class="stack-grid">
-    <div class="stack-item reveal" style="transition-delay:0ms"><div class="stack-icon-wrap"><span class="stack-icon">⬡</span></div><div><div class="stack-name">Node.js</div><div class="stack-role">Backend / API</div></div></div>
-    <div class="stack-item reveal" style="transition-delay:40ms"><div class="stack-icon-wrap"><span class="stack-icon">⚛</span></div><div><div class="stack-name">React + Vite</div><div class="stack-role">Frontend</div></div></div>
-    <div class="stack-item reveal" style="transition-delay:80ms"><div class="stack-icon-wrap"><span class="stack-icon">🐘</span></div><div><div class="stack-name">PostgreSQL</div><div class="stack-role">Banco de dados</div></div></div>
-    <div class="stack-item reveal" style="transition-delay:120ms"><div class="stack-icon-wrap"><span class="stack-icon">🟢</span></div><div><div class="stack-name">PM2</div><div class="stack-role">Processos</div></div></div>
-    <div class="stack-item reveal" style="transition-delay:160ms"><div class="stack-icon-wrap"><span class="stack-icon">🌐</span></div><div><div class="stack-name">Nginx</div><div class="stack-role">Proxy / SSL</div></div></div>
-    <div class="stack-item reveal" style="transition-delay:200ms"><div class="stack-icon-wrap"><span class="stack-icon">💬</span></div><div><div class="stack-name">WhatsApp API</div><div class="stack-role">Integração</div></div></div>
-    <div class="stack-item reveal" style="transition-delay:240ms"><div class="stack-icon-wrap"><span class="stack-icon">🔌</span></div><div><div class="stack-name">Socket.io</div><div class="stack-role">Realtime</div></div></div>
-    <div class="stack-item reveal" style="transition-delay:280ms"><div class="stack-icon-wrap"><span class="stack-icon">🐧</span></div><div><div class="stack-name">Ubuntu VPS</div><div class="stack-role">Infra</div></div></div>
-    <div class="stack-item reveal" style="transition-delay:320ms"><div class="stack-icon-wrap"><span class="stack-icon">🐙</span></div><div><div class="stack-name">GitHub</div><div class="stack-role">CI/CD</div></div></div>
+    <div class="stack-item reveal" style="transition-delay:0ms"><div class="stack-icon-wrap"><img class="stack-logo" src="assets/img/stack/nodejs.svg" alt="" width="22" height="22" loading="lazy"></div><div><div class="stack-name">Node.js</div><div class="stack-role">Backend / API</div></div></div>
+    <div class="stack-item reveal" style="transition-delay:40ms"><div class="stack-icon-wrap"><img class="stack-logo" src="assets/img/stack/react.svg" alt="" width="22" height="22" loading="lazy"></div><div><div class="stack-name">React + Vite</div><div class="stack-role">Frontend</div></div></div>
+    <div class="stack-item reveal" style="transition-delay:80ms"><div class="stack-icon-wrap"><img class="stack-logo" src="assets/img/stack/postgresql.svg" alt="" width="22" height="22" loading="lazy"></div><div><div class="stack-name">PostgreSQL</div><div class="stack-role">Banco de dados</div></div></div>
+    <div class="stack-item reveal" style="transition-delay:120ms"><div class="stack-icon-wrap"><span class="stack-logo mono" style="--logo:url(assets/img/stack/pm2.svg)" aria-hidden="true"></span></div><div><div class="stack-name">PM2</div><div class="stack-role">Processos</div></div></div>
+    <div class="stack-item reveal" style="transition-delay:160ms"><div class="stack-icon-wrap"><img class="stack-logo" src="assets/img/stack/nginx.svg" alt="" width="22" height="22" loading="lazy"></div><div><div class="stack-name">Nginx</div><div class="stack-role">Proxy / SSL</div></div></div>
+    <div class="stack-item reveal" style="transition-delay:200ms"><div class="stack-icon-wrap"><img class="stack-logo" src="assets/img/stack/whatsapp.svg" alt="" width="22" height="22" loading="lazy"></div><div><div class="stack-name">WhatsApp API</div><div class="stack-role">Integração</div></div></div>
+    <div class="stack-item reveal" style="transition-delay:240ms"><div class="stack-icon-wrap"><span class="stack-logo mono" style="--logo:url(assets/img/stack/socketio.svg)" aria-hidden="true"></span></div><div><div class="stack-name">Socket.io</div><div class="stack-role">Realtime</div></div></div>
+    <div class="stack-item reveal" style="transition-delay:280ms"><div class="stack-icon-wrap"><img class="stack-logo" src="assets/img/stack/ubuntu.svg" alt="" width="22" height="22" loading="lazy"></div><div><div class="stack-name">Ubuntu VPS</div><div class="stack-role">Infra</div></div></div>
+    <div class="stack-item reveal" style="transition-delay:320ms"><div class="stack-icon-wrap"><span class="stack-logo mono" style="--logo:url(assets/img/stack/github.svg)" aria-hidden="true"></span></div><div><div class="stack-name">GitHub</div><div class="stack-role">CI/CD</div></div></div>
   </div>
 </section>
 
