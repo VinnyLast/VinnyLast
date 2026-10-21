@@ -18,8 +18,11 @@
   <meta property="og:description" content="Sistemas que funcionam de verdade. Node.js, React, PostgreSQL, WhatsApp Cloud API.">
   <meta property="og:url" content="https://hvsn.com.br">
   <title>Marcos Vinicius | Full-Stack Developer</title>
+  <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#0b0c0f">
+  <meta property="og:image" content="https://hvsn.com.br/assets/img/logo-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -28,34 +31,36 @@
     *{box-sizing:border-box;margin:0;padding:0}
     :root{
       --radius:12px;--radius-lg:20px;
-      --gold-grad:linear-gradient(135deg,#f5d78e 0%,#d4a94a 45%,#9c7530 100%);
+      --gold-grad:linear-gradient(135deg,#f1e0a0 0%,#d9c07a 45%,#a17f45 100%);
       --font-head:'Space Grotesk',sans-serif;
     }
     :root[data-theme="dark"]{
-      --bg:#0a0908;--bg2:#141210;--bg3:#1c1814;--bg-elevated:#201c17;
-      --border:#d4a94a1f;--border2:#d4a94a3d;
-      --text:#f3efe6;--muted:#a39a89;--hint:#6b6357;
-      --gold:#d9b05a;--gold-soft:#f2ce87;--gold-deep:#a1793a;--gold-dim:#d4a94a17;
+      --bg:#0b0c0f;--bg2:#121318;--bg3:#1a1b21;--bg-elevated:#1f2027;
+      --border:#d9c07a1f;--border2:#d9c07a3d;
+      --text:#f2f0ea;--muted:#a3a29d;--hint:#6d6e75;
+      --gold:#dcc382;--gold-soft:#ecd99a;--gold-deep:#a17f45;--gold-dim:#d9c07a17;
+      --gold-text-grad:var(--gold-grad);
       --blue:#7fb0cc;--blue-dim:#7fb0cc1e;
       --teal:#6cb08c;--teal-dim:#6cb08c1e;
       --amber:var(--gold);--amber-dim:var(--gold-dim);
       --gray-dim:#ffffff0d;
-      --shadow-gold:0 24px 64px -24px #d4a94a3d;
-      --overlay-veil:#0a0908cc;
-      --contact-glow:radial-gradient(ellipse 60% 80% at 50% 0%,#d4a94a22,transparent 70%);
+      --shadow-gold:0 24px 64px -24px #d9c07a3d;
+      --overlay-veil:#0b0c0fcc;
+      --contact-glow:radial-gradient(ellipse 60% 80% at 50% 0%,#d9c07a22,transparent 70%);
     }
     :root[data-theme="light"]{
       --bg:#faf7f1;--bg2:#ffffff;--bg3:#f1ebdd;--bg-elevated:#ffffff;
-      --border:#b8842e28;--border2:#b8842e48;
+      --border:#a1803a28;--border2:#a1803a48;
       --text:#231f17;--muted:#6b6355;--hint:#9a917c;
-      --gold:#9c6f1f;--gold-soft:#c9993f;--gold-deep:#6f4d15;--gold-dim:#b8842e14;
+      --gold:#8a6a2b;--gold-soft:#b8964a;--gold-deep:#6b5020;--gold-dim:#a1803a14;
+      --gold-text-grad:linear-gradient(135deg,#b8964a 0%,#8a6a2b 55%,#6b5020 100%);
       --blue:#357b93;--blue-dim:#357b9316;
       --teal:#3d8a5f;--teal-dim:#3d8a5f16;
       --amber:var(--gold);--amber-dim:var(--gold-dim);
       --gray-dim:#00000008;
-      --shadow-gold:0 24px 64px -28px #b8842e40;
+      --shadow-gold:0 24px 64px -28px #a1803a40;
       --overlay-veil:#faf7f1cc;
-      --contact-glow:radial-gradient(ellipse 60% 80% at 50% 0%,#b8842e1c,transparent 70%);
+      --contact-glow:radial-gradient(ellipse 60% 80% at 50% 0%,#a1803a1c,transparent 70%);
     }
     html{scroll-behavior:smooth}
     body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:15px;transition:background-color .35s ease,color .35s ease}
@@ -65,8 +70,9 @@
 
     /* NAV */
     nav{position:sticky;top:0;z-index:100;background:var(--overlay-veil);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:76px}
-    .nav-logo{display:flex;align-items:center;height:100%}
-    .nav-logo img{height:44px;width:auto;display:block}
+    .nav-logo{display:flex;align-items:center;gap:11px;height:100%}
+    .nav-logo img{height:44px;width:44px;display:block;border-radius:11px}
+    .brand-word{font-family:var(--font-head);font-weight:700;font-size:24px;letter-spacing:2px;line-height:1;background:var(--gold-text-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
     .nav-links{display:flex;align-items:center;gap:1.8rem}
     .nav-links a{position:relative;font-size:13px;font-weight:500;color:var(--muted);transition:color .2s;letter-spacing:.2px}
     .nav-links a::after{content:'';position:absolute;left:0;right:0;bottom:-10px;height:2px;background:var(--gold-grad);transform:scaleX(0);transition:transform .25s ease}
@@ -88,7 +94,7 @@
     .hero-eyebrow{font-size:12px;font-weight:600;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;margin:0;display:flex;align-items:center;gap:8px}
     .hero-eyebrow::before{content:'';width:6px;height:6px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;box-shadow:0 0 8px var(--gold)}
     .hero h1{position:relative;font-family:var(--font-head);font-size:clamp(2.4rem,5.4vw,4.2rem);font-weight:700;line-height:1.08;letter-spacing:-1.8px;color:var(--text);margin-bottom:1.6rem}
-    .hero h1 em{font-style:normal;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero h1 em{font-style:normal;background:var(--gold-text-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
     .hero-sub{position:relative;font-size:17.5px;color:var(--muted);max-width:540px;margin-bottom:2.6rem;line-height:1.75}
 
     .t-dot{width:10px;height:10px;border-radius:50%}
@@ -96,7 +102,7 @@
 
     .hero-cta{display:flex;gap:12px;flex-wrap:wrap;position:relative}
     .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:9px;font-size:14px;font-weight:600;cursor:pointer;border:none;transition:all .2s;font-family:'Inter',sans-serif}
-    .btn-primary{background:var(--gold-grad);color:#181209;box-shadow:0 10px 30px -10px #d4a94a4d}
+    .btn-primary{background:var(--gold-grad);color:#181209;box-shadow:0 10px 30px -10px #d9c07a4d}
     .btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px)}
     .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border2)}
     .btn-ghost:hover{color:var(--gold);background:var(--gold-dim);border-color:var(--gold)}
@@ -114,11 +120,11 @@
     .about-photo{aspect-ratio:1/1;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border2);box-shadow:var(--shadow-gold);background:var(--bg3)}
     .about-photo img{width:100%;height:100%;object-fit:cover;display:block}
     .about-body h2{font-size:clamp(2rem,4vw,2.8rem);letter-spacing:-1px;margin-bottom:1.1rem}
-    .grad{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .grad{background:var(--gold-text-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
     .about-text{font-size:17px;color:var(--muted);line-height:1.75;max-width:560px}
     .about-text strong{color:var(--text);font-weight:600}
     .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem 2rem;margin-top:2.2rem;max-width:520px}
-    .stat-num{font-family:var(--font-head);font-size:clamp(1.9rem,3.4vw,2.6rem);font-weight:700;line-height:1.1;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:4px}
+    .stat-num{font-family:var(--font-head);font-size:clamp(1.9rem,3.4vw,2.6rem);font-weight:700;line-height:1.1;background:var(--gold-text-grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:4px}
     .stat-label{font-size:13.5px;color:var(--muted);line-height:1.4}
 
     /* STACK */
@@ -216,7 +222,7 @@
     .demo-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:20px;background:var(--gold-grad);color:#181209;font-size:11px;font-weight:700;white-space:nowrap;flex-shrink:0;animation:badgePulse 2.4s ease-in-out infinite}
     .demo-badge .short{display:none}
     .app-window.touched .demo-badge{animation:none;box-shadow:none}
-    @keyframes badgePulse{0%,100%{box-shadow:0 0 0 0 #d4a94a66}50%{box-shadow:0 0 0 7px #d4a94a00}}
+    @keyframes badgePulse{0%,100%{box-shadow:0 0 0 0 #d9c07a66}50%{box-shadow:0 0 0 7px #d9c07a00}}
     .cap-note{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--hint);margin-top:2px}
     .app{display:grid;height:450px;font-size:12.5px;line-height:1.45;color:#e6e9f2;text-align:left}
     .app{color-scheme:dark}
@@ -406,7 +412,7 @@
     .contact-inner p{font-size:16.5px;color:var(--muted);max-width:460px;margin:0 auto 2.4rem}
     .contact-links{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
     .contact-link{display:flex;align-items:center;gap:8px;padding:12px 22px;border-radius:10px;border:1px solid var(--border2);font-size:14px;font-weight:600;color:var(--text);transition:all .2s;background:var(--bg2);cursor:pointer;text-decoration:none}
-    .contact-link.primary{background:var(--gold-grad);color:#181209;border-color:transparent;box-shadow:0 10px 30px -10px #d4a94a4d}
+    .contact-link.primary{background:var(--gold-grad);color:#181209;border-color:transparent;box-shadow:0 10px 30px -10px #d9c07a4d}
     .contact-link.primary:hover{filter:brightness(1.08);transform:translateY(-1px)}
     .contact-link:not(.primary):hover{color:var(--gold);background:var(--gold-dim);border-color:var(--gold);transform:translateY(-2px)}
     .contact-link i{font-size:17px}
@@ -428,7 +434,8 @@
     }
     @media(max-width:600px){
       nav{padding:0 1rem;height:64px}
-      .nav-logo img{height:34px}
+      .nav-logo img{height:34px;width:34px;border-radius:9px}
+      .brand-word{font-size:19px;letter-spacing:1.5px}
       .nav-links a{display:none}
       .hero{padding:3.2rem 1.2rem 2.6rem}
       .hero::before{width:280px;height:280px;top:-110px;right:-110px}
@@ -442,7 +449,7 @@
 <body>
 
 <nav>
-  <div class="nav-logo"><img src="assets/img/hvsn-logo.png" alt="HVSN"></div>
+  <div class="nav-logo"><img src="assets/img/logo-mark-256.png" alt="" width="44" height="44"><span class="brand-word">HVSN</span></div>
   <div class="nav-links">
     <a href="#sobre" id="nav-about">Sobre</a>
     <a href="#stack">Stack</a>
