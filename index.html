@@ -460,14 +460,6 @@
     .section-label.reveal::before{transform:rotate(-135deg) scale(.5);transition:transform .8s var(--ease-out) .1s}
     .section-label.reveal.visible::before{transform:rotate(45deg)}
 
-    /* Giant outlined word that drifts with scroll behind each section */
-    #sobre,#stack,#projetos{position:relative;overflow-x:clip}
-    .sec-mark{position:absolute;top:.2rem;right:-1rem;z-index:-1;font-family:var(--font-head);font-weight:700;font-size:clamp(4.5rem,15vw,11.5rem);line-height:1;letter-spacing:-.045em;text-transform:uppercase;white-space:nowrap;color:transparent;-webkit-text-stroke:1px var(--border2);opacity:.6;pointer-events:none;user-select:none}
-    @supports (animation-timeline: view()){
-      .sec-mark{animation:markDrift linear both;animation-timeline:view();animation-range:entry 0% exit 100%}
-      @keyframes markDrift{from{transform:translateX(14%)}to{transform:translateX(-22%)}}
-    }
-
     /* Titles rise word by word (words are wrapped by splitHeadings) */
     .split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}
     .split .wi{display:inline-block;will-change:transform}
@@ -498,25 +490,9 @@
     .scroll-progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--gold-grad);transform-origin:0 50%;transform:scaleX(0);pointer-events:none}
 
 
-    /* Light beams: only behind the hero and the contact section */
-    :root[data-theme="dark"]{--beam:rgba(217,192,122,.13);--beam2:rgba(241,224,160,.07);--glow:rgba(217,192,122,.22)}
-    :root[data-theme="light"]{--beam:rgba(161,128,58,.11);--beam2:rgba(201,169,94,.08);--glow:rgba(201,169,94,.22)}
-    .hero-wrap{position:relative;isolation:isolate;overflow:hidden}
+    /* Interactive diamond lattice: only behind the contact section */
     .contact-section{isolation:isolate}
-    .hero-fx{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden;-webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent 100%);mask-image:linear-gradient(to bottom,#000 55%,transparent 100%)}
-    .hero-fx.fx-bottom{-webkit-mask-image:linear-gradient(to top,#000 50%,transparent 100%);mask-image:linear-gradient(to top,#000 50%,transparent 100%)}
-    .fx-tilt{position:absolute;left:50%;top:-6%;width:0;height:0}
-    .fx-bottom .fx-tilt{top:106%}
-    .fx-beams{position:absolute;width:140vmax;height:140vmax;left:-70vmax;top:-70vmax;border-radius:50%;
-      background:repeating-conic-gradient(from 0deg,var(--beam) 0deg,transparent 5deg,transparent 13deg,var(--beam) 18deg),repeating-conic-gradient(from 7deg,var(--beam2) 0deg,transparent 3deg,transparent 20deg,var(--beam2) 23deg);
-      -webkit-mask-image:radial-gradient(closest-side,#000 6%,rgba(0,0,0,.6) 34%,transparent 74%);mask-image:radial-gradient(closest-side,#000 6%,rgba(0,0,0,.6) 34%,transparent 74%);
-      animation:beamSpin 120s linear infinite}
-    .fx-bottom .fx-beams{animation-direction:reverse}
-    .fx-paused .fx-beams{animation-play-state:paused}
-    @keyframes beamSpin{to{transform:rotate(360deg)}}
-    .fx-glow{position:absolute;left:50%;top:-38%;width:min(1100px,130vw);height:90%;margin-left:max(-550px,-65vw);border-radius:50%;background:radial-gradient(closest-side,var(--glow),transparent)}
-    .fx-bottom .fx-glow{top:auto;bottom:-42%}
-    .fx-grain{position:absolute;inset:0;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+    .contact-lattice{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 22%,#000 82%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 22%,#000 82%,transparent 100%)}
 
     /* Theme switch: the new theme spreads from the toggle (View Transitions) */
     html.vt-theme *,html.vt-theme *::before,html.vt-theme *::after{transition:none!important}
@@ -546,7 +522,6 @@
     @keyframes stageOut{to{transform:scale(1.08);filter:blur(6px)}}
 
     @media(prefers-reduced-motion:reduce){
-      .fx-beams,.sec-mark{animation:none!important}
       .reveal.reveal-card.visible{animation:none!important}
       .reveal-media img,.section-label.reveal::before{clip-path:none!important;transform:none!important}
       .section-label.reveal::before{transform:rotate(45deg)!important}
@@ -652,8 +627,6 @@
 </nav>
 <div class="nav-scrim" id="nav-scrim"></div>
 
-<div class="hero-wrap" id="hero-wrap">
-<div class="hero-fx" aria-hidden="true"><div class="fx-tilt"><div class="fx-beams"></div></div><div class="fx-glow"></div><div class="fx-grain"></div></div>
 <div class="hero">
     <div class="hero-top"><div class="hero-eyebrow" id="hero-eyebrow">Desenvolvedor Full-Stack</div></div>
   <h1 id="hero-h1">Sistemas que <em>funcionam</em> de verdade</h1>
@@ -663,12 +636,10 @@
     <button class="btn btn-ghost" id="cta-contact" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Entrar em contato</button>
   </div>
 </div>
-</div>
 
 <div class="divider reveal"></div>
 
 <section id="sobre">
-  <span class="sec-mark" data-mark="labelAbout" aria-hidden="true">sobre</span>
   <div class="about-grid">
     <div class="about-photo reveal reveal-media"><img src="assets/img/profile.png" alt="Marcos Vinicius" loading="lazy"></div>
     <div class="about-body">
@@ -683,7 +654,6 @@
 <div class="divider reveal"></div>
 
 <section id="stack">
-  <span class="sec-mark" data-mark="stack" aria-hidden="true">stack</span>
   <div class="section-label reveal">stack</div>
   <h2 class="reveal" id="h2-stack">Tecnologias em uso</h2>
   <div class="stack-grid">
@@ -702,7 +672,6 @@
 <div class="divider reveal"></div>
 
 <section id="projetos">
-  <span class="sec-mark" data-mark="labelProjects" aria-hidden="true">projetos</span>
   <div class="section-label reveal" id="label-projects">projetos</div>
   <h2 class="reveal" id="h2-projects">O que foi construído</h2>
   <div class="stage-grid reveal">
@@ -761,7 +730,7 @@
 <div class="divider reveal"></div>
 
 <section id="contato" class="contact-section">
-  <div class="hero-fx fx-bottom" aria-hidden="true"><div class="fx-tilt"><div class="fx-beams"></div></div><div class="fx-glow"></div><div class="fx-grain"></div></div>
+  <canvas class="contact-lattice" id="contact-lattice" aria-hidden="true"></canvas>
   <div class="contact-inner reveal">
     <div class="section-label" id="label-contact">contato</div>
     <h2 id="contact-h3">Vamos trabalhar juntos?</h2>
@@ -1043,7 +1012,6 @@ function setLang(l){
   document.getElementById('nav-contact').textContent=t.navContact;
   document.getElementById('small-label').textContent=t.smallLabel;
   splitHeadings();
-  document.querySelectorAll('[data-mark]').forEach(el=>{el.textContent=t[el.dataset.mark]||el.dataset.mark;});
   renderStats();
   renderSmall();
   renderStage();
@@ -1586,23 +1554,73 @@ function countUp(el){
 })();
 
 (function(){
-  const quiet=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-  document.querySelectorAll('.hero-fx').forEach(fx=>{
-    const host=fx.parentElement, tilt=fx.querySelector('.fx-tilt'), glow=fx.querySelector('.fx-glow');
-    new IntersectionObserver(([e])=>fx.classList.toggle('fx-paused',!e.isIntersecting)).observe(host);
-    if(quiet)return;
-    let tx=0,ty=0,cx=0,cy=0,raf=0;
-    const frame=()=>{
-      cx+=(tx-cx)*.08;cy+=(ty-cy)*.08;
-      tilt.style.transform='rotate('+(cx*10).toFixed(3)+'deg)';
-      glow.style.transform='translate3d('+(cx*80).toFixed(1)+'px,'+(cy*50).toFixed(1)+'px,0)';
-      raf=(Math.abs(tx-cx)>.001||Math.abs(ty-cy)>.001)?requestAnimationFrame(frame):0;
-    };
-    const aim=(x,y)=>{const r=host.getBoundingClientRect();tx=(x-r.left)/r.width-.5;ty=(y-r.top)/r.height-.5;if(!raf)raf=requestAnimationFrame(frame);};
-    host.addEventListener('pointermove',e=>aim(e.clientX,e.clientY),{passive:true});
-    host.addEventListener('pointerleave',()=>{tx=0;ty=0;if(!raf)raf=requestAnimationFrame(frame);});
-    host.addEventListener('touchmove',e=>{const t=e.touches[0];if(t)aim(t.clientX,t.clientY);},{passive:true});
-  });
+  const host=byId('contato'), c=byId('contact-lattice');
+  if(!host||!c||!c.getContext)return;
+  const ctx=c.getContext('2d');
+  const BUCKETS=8, R=170, root=document.documentElement;
+  let W=0,H=0,pts=new Float32Array(0),raf=0,rgb='217,192,122';
+  let px=-1e4,py=-1e4,tx=-1e4,ty=-1e4,energy=0,target=0,idle=0;
+  const readColor=()=>{
+    const m=getComputedStyle(root).getPropertyValue('--gold').trim().match(/^#([0-9a-f]{6})$/i);
+    if(m){const n=parseInt(m[1],16);rgb=((n>>16)&255)+','+((n>>8)&255)+','+(n&255);}
+  };
+  const base=()=>root.getAttribute('data-theme')==='light'?.1:.08;
+  function resize(){
+    const dpr=Math.min(1.5,window.devicePixelRatio||1);
+    W=host.clientWidth;H=host.clientHeight;
+    if(!W||!H)return;
+    c.width=Math.round(W*dpr);c.height=Math.round(H*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    const gap=W<600?30:36, arr=[];
+    for(let r=0,y=gap/2;y<H+gap;y+=gap,r++)for(let x=(r%2?gap:gap/2);x<W+gap;x+=gap)arr.push(x,y);
+    pts=new Float32Array(arr);
+    draw();
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    const paths=[];for(let b=0;b<BUCKETS;b++)paths.push(new Path2D());
+    const b0=base(), near0=.55;
+    for(let i=0;i<pts.length;i+=2){
+      let x=pts[i],y=pts[i+1],a=b0,s=1.25;
+      if(energy>.002){
+        const dx=x-px,dy=y-py,d2=dx*dx+dy*dy;
+        if(d2<R*R){
+          const d=Math.sqrt(d2)||1,k=1-d/R,n=k*k*energy;
+          a+=n*near0;s+=n*2.8;
+          const push=n*12;x+=dx/d*push;y+=dy/d*push;
+        }
+      }
+      const b=Math.min(BUCKETS-1,Math.floor((a-b0)/(near0+.001)*BUCKETS));
+      const p=paths[b];p.moveTo(x,y-s);p.lineTo(x+s,y);p.lineTo(x,y+s);p.lineTo(x-s,y);p.closePath();
+    }
+    ctx.fillStyle='rgb('+rgb+')';
+    for(let b=0;b<BUCKETS;b++){ctx.globalAlpha=b0+b/(BUCKETS-1)*near0;ctx.fill(paths[b]);}
+    ctx.globalAlpha=1;
+  }
+  function loop(){
+    px+=(tx-px)*.2;py+=(ty-py)*.2;
+    energy+=(target-energy)*.12;
+    draw();
+    if(Math.abs(target-energy)>.003||Math.abs(tx-px)>.5||Math.abs(ty-py)>.5)raf=requestAnimationFrame(loop);
+    else{raf=0;if(target===0){energy=0;draw();}}
+  }
+  const kick=()=>{if(!raf&&!document.hidden)raf=requestAnimationFrame(loop);};
+  const point=(cx,cy)=>{
+    const r=host.getBoundingClientRect(), x=cx-r.left, y=cy-r.top;
+    if(px<-9e3){px=x;py=y;}
+    tx=x;ty=y;target=1;kick();
+    clearTimeout(idle);idle=setTimeout(()=>{target=0;kick();},1400);
+  };
+  readColor();resize();
+  if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){
+    host.addEventListener('pointermove',e=>{if(e.pointerType==='mouse'||e.pointerType==='pen')point(e.clientX,e.clientY);},{passive:true});
+    host.addEventListener('pointerleave',()=>{target=0;kick();});
+    host.addEventListener('touchstart',e=>{const t=e.touches[0];if(t)point(t.clientX,t.clientY);},{passive:true});
+    host.addEventListener('touchmove',e=>{const t=e.touches[0];if(t)point(t.clientX,t.clientY);},{passive:true});
+  }
+  if(window.ResizeObserver)new ResizeObserver(resize).observe(host);else window.addEventListener('resize',resize);
+  document.addEventListener('visibilitychange',()=>{if(document.hidden&&raf){cancelAnimationFrame(raf);raf=0;}});
+  new MutationObserver(()=>{readColor();draw();}).observe(root,{attributes:true,attributeFilter:['data-theme']});
 })();
 
 (function(){
