@@ -136,8 +136,9 @@
 
     /* ABOUT */
     .about-grid{display:grid;grid-template-columns:minmax(0,380px) 1fr;gap:3.2rem;align-items:center}
-    .about-photo{aspect-ratio:1/1;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border2);box-shadow:var(--shadow-gold);background:var(--bg3)}
-    .about-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .about-photo{aspect-ratio:4/5;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border2);box-shadow:var(--shadow-gold);background:var(--bg3)}
+    .about-photo picture{display:block;width:100%;height:100%}
+    .about-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block}
     .about-body h2{font-size:clamp(2rem,4vw,2.8rem);letter-spacing:-0.03em;margin-bottom:1.1rem}
     .grad{background:var(--gold-text-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
     .about-text{font-size:17px;color:var(--muted);line-height:1.75;max-width:560px}
@@ -641,7 +642,7 @@
 
 <section id="sobre">
   <div class="about-grid">
-    <div class="about-photo reveal reveal-media"><img src="assets/img/profile.png" alt="Marcos Vinicius" loading="lazy"></div>
+    <div class="about-photo reveal reveal-media"><picture><source srcset="assets/img/profile.webp" type="image/webp"><img src="assets/img/profile.jpg" alt="Marcos Vinicius" width="820" height="1230" loading="lazy"></picture></div>
     <div class="about-body">
       <div class="section-label reveal" id="label-about">sobre</div>
       <h2 class="reveal" id="h2-about">Marcos <span class="grad">Vinicius</span></h2>
